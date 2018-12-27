@@ -19,11 +19,11 @@ class Tab{
         if (val){
             this.wrapper.style.display="block"
             this.actv=true
-            this.bt.className+=" active";
+            this.bt.className="active";
         } else {
             this.wrapper.style.display="none"
             this.actv=false
-            this.bt.className=this.bt.className.replace('active','')
+            this.bt.className=this.bt.className=''
         }
     }
     public get content():HTMLElement{
@@ -31,7 +31,7 @@ class Tab{
     }
     public set content(val:HTMLElement){
         this.cont=val
-        this.wrapper.innerHTML=""
+        while(this.wrapper.firstChild) this.wrapper.removeChild(this.wrapper.firstChild)
         this.wrapper.appendChild(this.cont)
     }
 }
@@ -39,15 +39,14 @@ class Tab{
 export class TabSystem{
     private lookup:{[name:string]:Tab};
     constructor(names:string[],bar:HTMLDivElement,container:HTMLDivElement){
-        this.lookup={}
+      this.lookup={}
         for(var name of names){
             this.lookup[name]=new Tab(name,bar,container,this.setActive)
             this.lookup[name].content=document.createElement('div')
-            this.lookup[name].content.innerHTML=name
         }
-        this.setActive(names[0])
+      this.setActive(names[0])
     }
-    public setActive(name:string){
+    public setActive = (name:string)=>{
         for (var n in this.lookup)
             this.lookup[n].active=(n==name)
     }
