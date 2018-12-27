@@ -1,17 +1,21 @@
 export class Accordion{
-    private bt:HTMLButtonElement
+    private head:HTMLDivElement
     private cont:HTMLElement
     private wrap:HTMLDivElement
-    private active:boolean
 
-    constructor(parent:HTMLElement,button:HTMLElement,content:HTMLElement){
+    constructor(parent:HTMLElement,button:HTMLDivElement,content:HTMLDivElement){
 
-        this.bt=document.createElement('button')
-        this.bt.onclick=(ev:MouseEvent)=>{this.open=!this.open}
-        this.bt.appendChild(button)
+        this.head=button;
+        this.head.classList.add("accordian-head")
+        this.head.onclick=(ev:MouseEvent)=>{this.open=!this.open}
+
         this.wrap=document.createElement('div')
+        this.wrap.classList.add("accordian-wrapper")
         this.cont=content
-        this.wrap.appendChild(this.bt)
+        this.content.classList.add("accordian-content")
+
+
+        this.wrap.appendChild(this.head)
         this.wrap.appendChild(this.cont)
         this.open=false
         parent.appendChild(this.wrap)
@@ -24,16 +28,9 @@ export class Accordion{
         this.wrap.appendChild(this.cont)
     }
 
-    public get open() : boolean{return this.active}
+    public get open() : boolean{return this.wrap.classList.contains("active")}
     public set open(val:boolean) {
-        if (val){
-            this.cont.style.display="block"
-            this.bt.className+=" active"
-            this.active=true
-        } else {
-            this.cont.style.display="none"
-            this.bt.className.replace('active','')
-            this.active=false
-        }
+        if (val) this.wrap.classList.add("active")
+        else this.wrap.classList.remove("active")
     }
 }

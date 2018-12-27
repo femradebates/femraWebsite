@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 import {TabSystem} from './components/tabBar'
 import {Accordion} from './components/accordion'
 import * as defs from './data/definitions.json'
@@ -27,9 +27,9 @@ for(var i in (<any>defs)){
     if (i=="default") continue;
     let def: any = (<any>defs)[i]
 
-    let defSpan:HTMLElement=document.createElement('span')
-    defSpan.innerHTML=def.term;
+    let defHead:HTMLDivElement=document.createElement('div') as HTMLDivElement
+    defHead.innerHTML=def.term;
     
-    let defAccord:Accordion=new Accordion(defView,defSpan,document.createElement('div'))
+    let defAccord:Accordion=new Accordion(defView,defHead,document.createElement('div'))
     defAccord.content.innerHTML=def.prefix+(def.prefix.size>0?' ':'')+'<b>'+def.term+'</b> '+def.def
 }
