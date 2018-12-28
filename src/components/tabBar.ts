@@ -1,10 +1,10 @@
 class Tab{
-    private bt:HTMLButtonElement;
+    private bt:HTMLDivElement;
     private wrapper:HTMLDivElement;
     private cont:HTMLElement;
     private actv:boolean;
     constructor(name:string, bar:HTMLDivElement, container:HTMLDivElement,onclick: (name:string)=>void = (name:string)=>{}){
-        this.bt=document.createElement('button');
+        this.bt=document.createElement('div');
         this.bt.innerHTML=name
         this.bt.onclick=(ev:MouseEvent)=>{onclick(name)}     
         bar.appendChild(this.bt)

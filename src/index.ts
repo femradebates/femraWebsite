@@ -1,6 +1,10 @@
+//import * as firebase from 'firebase';
+
 import './style.scss';
 import {TabSystem} from './components/tabBar'
 import {Accordion} from './components/accordion'
+import {DefinitionData,Definition} from './components/definition'
+
 import * as defs from './data/definitions.json'
 
 document.title="FeMRADebates: Discuss Gender Equality"
@@ -21,15 +25,27 @@ let tabs : TabSystem = new TabSystem(["Definitions","Users and tiers "],tabBar,m
 let defView :HTMLElement=document.createElement('div');
 tabs.setContent("Definitions",defView)
 
-let defAccordians:Accordion[] =[];
+let definitions: Definition[] = []
 
 for(var i in (<any>defs)){
     if (i=="default") continue;
-    let def: any = (<any>defs)[i]
-
-    let defHead:HTMLDivElement=document.createElement('div') as HTMLDivElement
-    defHead.innerHTML=def.term;
-    
-    let defAccord:Accordion=new Accordion(defView,defHead,document.createElement('div'))
-    defAccord.content.innerHTML=def.prefix+(def.prefix.size>0?' ':'')+'<b>'+def.term+'</b> '+def.def
+    let def: DefinitionData = (<any>defs)[i]
+    definitions.push(new Definition(defView,def))
 }
+
+/*firebase.initializeApp({
+    apiKey: "AIzaSyBVO6mnImTz5Z4HECeRjy7IhzUgyxFeM8w",
+    authDomain: "femradebates-751d8.firebaseapp.com",
+    databaseURL: "femradebates-751d8.firebaseio.com",
+    prodjectId: "femradebates-751d8",
+    storageBucket: "femradebates-751d8.appspot.com",
+    messagingSenderId: "891740031011"
+});
+
+let database:any =firebase.database();
+
+database.ref('definitions/').on('value',(snapshot:any)=>{
+    console.log(snapshot.val())
+    alert("on()")
+})*/
+

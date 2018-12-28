@@ -1,6 +1,10 @@
-$primary: #9e9e9e;
+/*$primary: #9e9e9e;
 $primary-dark: #707070;
-$primary-light: #cfcfcf;
+$primary-light: #cfcfcf;*/
+$primary: #90a4ae;
+$primary-dark: #62757f;
+$primary-light: #c1d5e0;
+
 $box-shading-color: rgba(0,0,0,.5);
 
 body{
@@ -20,20 +24,21 @@ body{
   background-color: $primary;
 }
 
-#tab-bar button {
+#tab-bar div {
   background-color: inherit;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  float: left;
 }
 
-#tab-bar button:hover {
+#tab-bar div:hover {
   background-color: mix($primary,$primary-dark,33%);
 }
 
-#tab-bar button.active {
+#tab-bar div.active {
   color: white;
   background-color: $primary-dark;
 }
@@ -82,16 +87,18 @@ body{
 }
 
 .accordian-wrapper:hover .accordian-head{
+  color: white;
   background-color: mix($primary,$primary-dark,33%);
 }
 
 .accordian-wrapper.active:hover .accordian-head{
+  color: white;
   background-color: mix($primary,$primary-dark,33%);
 }
 
 .accordian-wrapper.active .accordian-head{
   color: white;
-  background-color: $primary;
+  background-color: $primary-dark;
   border-radius: 10px 0px 0px 0px;
 }
 
