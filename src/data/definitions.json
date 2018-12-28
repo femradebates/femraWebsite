@@ -2,6 +2,7 @@
     {
         "altTerms": [],
         "def": "a Rape in which the victim knows the rapist. See Stranger Rape",
+        "notes":[],
         "prefix": "",
         "term": "Acquaintance Rape"
     },
@@ -11,39 +12,45 @@
             "Employment Equity"
         ],
         "def": "refers to policies that advantage people of a specific Intersectional Axis, who are perceived to be Oppressed",
+        "notes":[],
         "prefix": "",
         "term": "Affirmative Action"
     },
     {
         "altTerms": [],
         "def": "A person or group of people is said to have Agency if they have the capability to act independently. Unconscious people, inanimate objects, lack Agency. See Hypoagency, Hyperagency",
+        "notes":[],
         "prefix": "",
         "term": "Agency"
     },
     {
-        "altTerms": [
+        "altTerms": [],
+        "def": "Men are considered to have greater Agency than Women. Men are more often considered as Hyperagents, while Women are more often considered as Hypoagents. The term was debated here",
+        "notes":[
             "or Agentia for short"
         ],
-        "def": "Men are considered to have greater Agency than Women. Men are more often considered as Hyperagents, while Women are more often considered as Hypoagents. The term was debated here",
         "prefix": "",
         "term": "Agentism"
     },
     {
         "altTerms": [],
         "def": "A group of people is Androcentric if their practices focus on Men",
+        "notes":[],
         "prefix": "",
         "term": "Androcentrism"
     },
     {
         "altTerms": [],
         "def": "refers to the combination of masculine and feminine characteristics. A person is Androgynous if they express both masculine and feminine traits. A person's Sex is Androgynous if their genitalia was ambiguous at birth",
+        "notes":[],
         "prefix": "",
         "term": "Androgyny"
     },
     {
         "altTerms": [],
         "def": "is a person who experiences a lack of sexual and/or romantic attraction",
-        "prefix": "An ",
+        "notes":[],
+        "prefix": "An",
         "term": "Asexual"
     },
     {
@@ -51,19 +58,22 @@
             "Bi-gender"
         ],
         "def": "means that the person identifies as fully expressing two Gender identities. Most commonly, it refers to someone who feels fully that they are a Man, and fully that they are a Woman. Often bigender individuals will switch between the two genders that they identify as",
+        "notes":[],
         "prefix": "",
         "term": "Bigender"
     },
     {
         "altTerms": [],
         "def": "is a person who is romantically interested in both Men and Women. Usually someone who identifies as Biromantic will be sexually interested in people of only one Sex/Gender",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Biromantic"
     },
     {
         "altTerms": [],
         "def": "is a person who is attracted to both Men and Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Bisexual"
     },
     {
@@ -71,6 +81,7 @@
             "Bisexual Invisibility"
         ],
         "def": "is the tendency to ignore, remove, falsify, or reexplain evidence of Bisexuality in history, academia, news media and other primary sources. In its most extreme form, bisexual erasure can include denying that bisexuality exists. It is often a manifestation of biphobia, although it does not necessarily involve overt antagonism",
+        "notes":[],
         "prefix": "",
         "term": "Bisexual Erasure"
     },
@@ -80,6 +91,7 @@
             "Black-out"
         ],
         "def": "drunk refers to a state of mental awareness where an individual's capacity to form memories is suppressed by alcohol, to the point that no new memories are being formed. Differs from \"Passed out\" in that it does not refer to an unconscious person",
+        "notes":[],
         "prefix": "",
         "term": "Blacked Out"
     },
@@ -88,7 +100,8 @@
             "Ciswoman"
         ],
         "def": "is a person whose birth Sex is female, who identifies as a Woman. Differs from Woman, which refers to Gender identity. See Cismale, Man, Men, Cisfemale, Woman, Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Cisfemale"
     },
     {
@@ -97,6 +110,7 @@
             "Cis"
         ],
         "def": "An individual is Cisgender if their self-perception of their Gender matches the sex they were born with. The term Cisgendered carries the same meaning, but is regarded negatively, and its use is discouraged",
+        "notes":[],
         "prefix": "",
         "term": "Cisgender"
     },
@@ -105,24 +119,28 @@
             "Cisman"
         ],
         "def": "is a person whose birth Sex is male, who identifies as a Man. Differs from Man, which refers to Gender identity. See Cismale, Man, Men, Cisfemale, Woman, Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Cismale"
     },
     {
         "altTerms": [],
         "def": "is either an identifiable group of people defined by cultural beliefs and practices, or a series of lectures or lessons in a particular subject. Classes can be privileged, oppressed, boring, or educational.  Examples include but are not limited to Asians, Women, Men, Homosexuals, and Women's Studies 243: Women and Health",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Class"
     },
     {
         "altTerms": [],
         "def": "In a sexual context, permission given by a victim to a specific sexual act while under implicit or explicit threat",
+        "notes":[],
         "prefix": "",
         "term": "Coerced Consent"
     },
     {
         "altTerms": [],
         "def": "In a sexual context, permission given by one of the parties involved to engage in a specific sexual act. Consent is a positive affirmation rather than a passive lack of protest. An individual is incapable of \"giving consent\" if they are intoxicated, drugged, or threatened. The borders of what determines \"incapable\" are widely disagreed upon",
+        "notes":[],
         "prefix": "",
         "term": "Consent"
     },
@@ -132,19 +150,22 @@
             "Defined"
         ],
         "def": "in a dictionary or a glossary is a recording of what the majority of people understand a word to mean. If someone dictates an alternate, real definition for a word, that does not change the word's meaning. If someone wants to change a word's definition to mean something different, they cannot simply assert their definition, they must convince the majority to use it that way. A dictionary/glossary simply records this consensus, it does not dictate it. Credit to /u/y_knot for their comment",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Definition"
     },
     {
         "altTerms": [],
         "def": "is the prejudicial and/or distinguishing treatment of an individual based on their actual or perceived membership in a certain group or category. Discrimination based on one's Sex/Gender backed by institutional cultural norms is formally known as Institutional Sexism. Discrimination based on one's Sex/Gender without the backing of institutional cultural norms is simply referred to as Sexism or Discrimination",
+        "notes":[],
         "prefix": "",
         "term": "Discrimination"
     },
     {
         "altTerms": [],
         "def": "is a person who identifies as an Egalitarian, and supports movements aimed at defining, establishing, and defending equal political, economic, and social rights for people regardless of Gender",
-        "prefix": "An ",
+        "notes":[],
+        "prefix": "An",
         "term": "Egalitarian"
     },
     {
@@ -152,12 +173,14 @@
             "ex. working out"
         ],
         "def": "mental (ex. passing an exam), economic (ex. getting a raise), or social (ex. being elected to office)",
+        "notes":[],
         "prefix": "",
         "term": "Empowerment"
     },
     {
         "altTerms": [],
         "def": "In a sexual context, permission given for and excitement communicated about a specific sexual act given by one of the parties",
+        "notes":[],
         "prefix": "",
         "term": "Enthusiastic Consent"
     },
@@ -166,6 +189,7 @@
             "Equal Opportunity"
         ],
         "def": "is the concept that people should have equal opportunities to succeed. Differs from Equality of Outcome in that the outcome is unimportant. For example, if men and women are both accepted into engineering programs based solely on their academic achievement, but men dominate the field of engineering, supporters of Equality of Opportunity would be satisfied, while Equality of Outcome supporters would not be satisfied",
+        "notes":[],
         "prefix": "",
         "term": "Equality of Opportunity"
     },
@@ -174,6 +198,7 @@
             "Equal Outcome"
         ],
         "def": "is the concept that people should have equal amounts of success, irrespective of opportunity. Differs from Equality of Opportunity in that the outcome is very important. For example, if men and women are both accepted into engineering programs based solely on their academic achievement, but men dominate the field of engineering, supporters of Equality of Opportunity would be satisfied, while Equality of Outcome supporters would not be satisfied",
+        "notes":[],
         "prefix": "",
         "term": "Equality of Outcome"
     },
@@ -182,54 +207,63 @@
             "or other entities"
         ],
         "def": "are defined by fixed, innate attributes. This includes behavior (ie. Feminists are all women) and physical characteristics (ie. Men are all stronger than Women). Most commonly refers to to Gender Essentialism (where people are defined by their Gender). Sexual Dimorphism is a related concept, which is similar, but takes into account variance between individuals. Gender Essentialism is widely discredited by the scientific community",
+        "notes":[],
         "prefix": "",
         "term": "Essentialism"
     },
     {
         "altTerms": [],
         "def": "is a collection of movements and ideologies aimed at defining, establishing, and defending political, economic, and social rights for Women",
+        "notes":[],
         "prefix": "",
         "term": "Feminism"
     },
     {
         "altTerms": [],
         "def": "is someone who identifies as a Feminist, believes that social inequality exists against Women, and supports movements aimed at defining, establishing, and defending political, economic, and social rights for Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Feminist"
     },
     {
         "altTerms": [],
         "def": "or Gender Identity is a person's personal perception of Gender. People can identify as male, female, or Genderqueer. Gender differs from Sex in that Sex is biologically determined, and Gender is social. See Gender Constructivism",
+        "notes":[],
         "prefix": "",
         "term": "Gender"
     },
     {
         "altTerms": [],
         "def": "refers to the socionormative perception that one's Gender can only be male or female. The Gender Binary excludes people who identify as Genderqueer",
-        "prefix": "The ",
+        "notes":[],
+        "prefix": "The",
         "term": "Gender Binary"
     },
     {
         "altTerms": [],
         "def": "refers to the concept that Gender is a social construct.",
+        "notes":[],
         "prefix": "",
         "term": "Gender Constructivism"
     },
     {
         "altTerms": [],
         "def": "or Egalitarian Culture, is a society in which neither Men nor Women are a Privileged Gender Class",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Gender Egalitarian Culture"
     },
     {
         "altTerms": [],
         "def": "A term is Gendered if it carries a connotation of a specific Gender. Examples include \"slut\", \"bitch\", \"bastard\", \"patriarchy\", and \"mansplaining\"",
+        "notes":[],
         "prefix": "",
         "term": "Gendered"
     },
     {
         "altTerms": [],
         "def": "is a catch-all term for all Gender identities outside of male and female",
+        "notes":[],
         "prefix": "",
         "term": "Genderqueer"
     },
@@ -238,19 +272,22 @@
             "or Govia for short"
         ],
         "def": "Men have a greater ability to directly control the society than Women. Examples of people with lots of social power are presidents, CEOs, famous philosophers, and stars. Examples of people with minimal social power are the homeless, salespeople, nurses, and stay-at-home parents. The term was debated here and here. Govism is a part of Patriarchy",
+        "notes":[],
         "prefix": "",
         "term": "Govism"
     },
     {
         "altTerms": [],
         "def": "A group of people is Gynocentric if their practices focus on Women",
+        "notes":[],
         "prefix": "",
         "term": "Gynocentrism"
     },
     {
         "altTerms": [],
         "def": "is a person who is sexually and/or romantically attracted to people of the opposite Sex/Gender. A cishet is a Cisgender heterosexual",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Heterosexual"
     },
     {
@@ -258,7 +295,8 @@
             "pl. Homosexuals"
         ],
         "def": "is a person who is sexually and/or romantically attracted to people of the same Sex/Gender. A Lesbian is a homosexual woman. A Gay person is most commonly a male homosexual, but the term may also refer to any non-heterosexual",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Homosexual"
     },
     {
@@ -267,6 +305,7 @@
             "Hyper Agency"
         ],
         "def": "The belief that a person or group of people have a disproportionately large amount of Agency. If a person or group of people is Hyperagent, they may be considered responsible for the actions of others. The opposite of Hypoagency",
+        "notes":[],
         "prefix": "",
         "term": "Hyperagency"
     },
@@ -275,12 +314,14 @@
             "Hypersexualize"
         ],
         "def": "A person is Hypersexualized if the are made to be extremely sexual, usually referring to the exaggeration of those physical traits that indicate sexual arousal, receptivity, and fertility. Differs from Sexual Objectification in that the person retains Agency",
+        "notes":[],
         "prefix": "",
         "term": "Hypersexualization"
     },
     {
         "altTerms": [],
         "def": "To exaggerate the suffering of an individual or group",
+        "notes":[],
         "prefix": "",
         "term": "Hypervictimization"
     },
@@ -290,19 +331,22 @@
             "Hypo Agency"
         ],
         "def": "The belief that a person or group of people lacks the ability to act independently, either in part of in full. If a person or group of people is Hypoagent, they may not be considered responsible for their own actions. The opposite of Hyperagency",
+        "notes":[],
         "prefix": "",
         "term": "Hypoagency"
     },
     {
         "altTerms": [],
         "def": "Discrimination based on one's perceived Sex or Gender with the backing of institutionalized cultural norms. Institutional Sexism is sometimes referred to simply as Sexism",
+        "notes":[],
         "prefix": "",
         "term": "Institutional Sexism"
     },
     {
         "altTerms": [],
         "def": "or an Intersectionality is a descriptor for a set of related Classes. Example Intersectionalities include but are not limited to Race, Gender, or Sexual Orientation. Intersectionality may also refer to the study of Intersectional Axes",
-        "prefix": "An ",
+        "notes":[],
+        "prefix": "An",
         "term": "Intersectional Axis"
     },
     {
@@ -311,6 +355,7 @@
             "Intersectional Shaming"
         ],
         "def": "is the practice of suppression of speech from a person or persons of specific Intersectionalities that are considered to have Privilege. Usually it is implied that the Privileged individual or individuals are unable to understand the issue at hand. Differs from Newb Shaming in that the opinion is dismissed not on the intellectual validity of the opinions expressed, but based on the perception of the speaker or speakers' Privilege",
+        "notes":[],
         "prefix": "",
         "term": "Intersectional Silencing"
     },
@@ -319,6 +364,7 @@
             "Incel"
         ],
         "def": "refers to a person (usually a man) who is not sexually active, but wants to be",
+        "notes":[],
         "prefix": "",
         "term": "Involuntary Celibate"
     },
@@ -328,30 +374,35 @@
             "Financial Abortion"
         ],
         "def": "refers to a hypothetical legal action where a person (usually a man) declares that they will not support a currently unborn child financially. Usually this is an action that can only be taken in the legal timeframe that mothers are allowed to have abortions. The term Legal Paternal Surrender is preferred in this sub to the term Financial Abortion, as discussed here",
+        "notes":[],
         "prefix": "",
         "term": "Legal Paternal Surrender"
     },
     {
         "altTerms": [],
         "def": "A culture practices Male Disposability if a higher emphasis is placed on the suffering of Women than the suffering of Men. A Disposable Male is a Man within a culture where higher emphasis is placed on the suffering of Women than of Men",
+        "notes":[],
         "prefix": "",
         "term": "Male Disposability"
     },
     {
         "altTerms": [],
         "def": "is a person who identifies as a Man, by Gender. Differs from Cismale, which includes birth Sex. See Cismale, Man, Men, Cisfemale, Woman, Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Man"
     },
     {
         "altTerms": [],
         "def": "A term used to describe the social pressure on Men to suppress their feelings when faced with adversity. Also, refers to people telling men to \"Man up\" when they are faced with a problem that they don't want to handle alone. The \"Man Up\" attitude is considered to amplify male adversity, and have a net negative effect on men. Toxic Masculinity is a related Feminist term",
+        "notes":[],
         "prefix": "",
         "term": "Man Up"
     },
     {
         "altTerms": [],
         "def": "refers to a man explaining a concept condescendingly to a woman, while under the belief that because he is a Man, and she is a Woman, he knows more about the topic than her",
+        "notes":[],
         "prefix": "",
         "term": "Mansplaining"
     },
@@ -360,18 +411,21 @@
             "usually pejoratively"
         ],
         "def": "to refer to MRM, MGTOW, and PUA blogs, message boards, and other online spaces",
-        "prefix": "The ",
+        "notes":[],
+        "prefix": "The",
         "term": "Manosphere"
     },
     {
         "altTerms": [],
         "def": "or Matriarchy is a society in which Women are the Privileged Gender Class",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Matriarchal Culture"
     },
     {
         "altTerms": [],
         "def": "is a term that refers to all people who identify as a Man, by Gender. Differs from Cismales, which refers to birth Sex. See Cismale, Man, Men, Cisfemale, Woman, Women",
+        "notes":[],
         "prefix": "",
         "term": "Men"
     },
@@ -381,7 +435,8 @@
             "Men's Rights"
         ],
         "def": "or Men's Human Rights Movement (MHRM) is a collection of movements and ideologies aimed at defining, establishing, and defending political, economic, and social rights for Men",
-        "prefix": "The ",
+        "notes":[],
+        "prefix": "The",
         "term": "Men's Rights Movement"
     },
     {
@@ -389,6 +444,7 @@
             "MGTOW"
         ],
         "def": "a statement of self-ownership and saying that only you have the right to decide what your goals in life should be. Usually this includes changes in the individual's romantic/sexual pursuits, most commonly the elimination of the pursuit of Women",
+        "notes":[],
         "prefix": "",
         "term": "Men/Man Going Their Own Way"
     },
@@ -398,7 +454,8 @@
             "MRA"
         ],
         "def": "is someone who identifies as an MRA, believes that social inequality exists against Men, and supports movements aimed at defining, establishing, and defending political, economic, and social rights for Men",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Men's Rights Activist"
     },
     {
@@ -406,6 +463,7 @@
             "Misandrist"
         ],
         "def": "Attitudes, beliefs, comments, and narratives that perpetuate or condone the Oppression of Men. A person or object is Misandric if it promotes Misandry",
+        "notes":[],
         "prefix": "",
         "term": "Misandry"
     },
@@ -414,12 +472,14 @@
             "Misogynist"
         ],
         "def": "Attitudes, beliefs, comments, and narratives that perpetuate or condone the Oppression of Women. A person or object is Misogynist if it promotes Misogyny",
+        "notes":[],
         "prefix": "",
         "term": "Misogyny"
     },
     {
         "altTerms": [],
         "def": "Stands for \"Not All Feminists Are Like That\", often used pejoratively, as with \"Not All Men\"",
+        "notes":[],
         "prefix": "",
         "term": "NAFALT"
     },
@@ -428,6 +488,7 @@
             "Newb Shaming"
         ],
         "def": "is the practice of suppression of speech from a person or persons who lack knowledge on a topic. Usually it is implied that the individual or individuals are unable to understand the issue at hand, and first need to listen to those with knowledge of the subject. Differs from Intersectional Silencing in that the opinion is dismissed on the intellectual validity of the opinions expressed, rather than the perception of the speaker or speakers' Privilege",
+        "notes":[],
         "prefix": "",
         "term": "Newb Silencing"
     },
@@ -436,31 +497,36 @@
             "Objectify"
         ],
         "def": "A person is Objectified if they are treated as an object without Agency (the capacity to independently act). The person is acted upon by the subject. Commonly implies Sexual Objectification",
+        "notes":[],
         "prefix": "",
         "term": "Objectification"
     },
     {
         "altTerms": [],
         "def": "A Class is said to be Oppressed if members of the Class have a net disadvantage in gaining and maintaining social power, and material resources, than does another Class of the same Intersectional Axis",
+        "notes":[],
         "prefix": "",
         "term": "Oppression"
     },
     {
         "altTerms": [],
         "def": "is a term used when two or more groups compete to prove themselves more Oppressed than each other. For example, if Activist A feeds starving children in Africa and Activist B feeds the homeless in the first world, and they argue about who needs the service more, then they are playing the Oppression Olympics",
+        "notes":[],
         "prefix": "",
         "term": "Oppression Olympics"
     },
     {
         "altTerms": [],
         "def": "is a person who is attracted to Men, Women, and Genderqueer people",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Pansexual"
     },
     {
         "altTerms": [],
         "def": "or Patriarchy is a culture in which Men are the Privileged Gender Class. Specifically, the culture is Srolian, Govian, Secoian, and Agentian. The definition itself was discussed in a series of posts, and summarized here. See Privilege, Oppression",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Patriarchal Culture"
     },
     {
@@ -469,12 +535,14 @@
             "Person of Color"
         ],
         "def": "are people who are not white. This includes, but is not limited to: Asian, Black, and Hispanic people",
+        "notes":[],
         "prefix": "",
         "term": "People of Color"
     },
     {
         "altTerms": [],
         "def": "Feminism is a broad grouping of Feminist theories which reject the belief that there is any absolute or universal reference point for truth, meaning, and value. Encompassing schools of thought such as Poststructuralist and postcolonial Feminism, Postmodern Feminism attempts to challenge dominant narratives of truth, meaning, and value by exposing biases, exclusions, historical contingencies, and imbalances of power in supposedly neutral, universal discourses",
+        "notes":[],
         "prefix": "",
         "term": "Postmodern"
     },
@@ -483,30 +551,35 @@
             "gendered"
         ],
         "def": "subjectivity are produced within linguistically-encoded structures of power. This leads to a rejection of universalized, absolute, or univocal meaning, which is sometimes taken so far as to reject \"Women\" as a coherent category which could serve as the subject of Feminism. ",
+        "notes":[],
         "prefix": "",
         "term": "Poststructuralist"
     },
     {
         "altTerms": [],
         "def": "is social inequality that is advantageous to members of a particular Class, possibly to the detriment of other Class. A Class is said to be Privileged if members of the Class have a net advantage in gaining and maintaining social power, and material resources, than does another Class of the same Intersectional Axis. People within a Privileged Class are said to have Privilege. If you are told to \"Check your privilege\", you are being told to recognize that you are Privileged, and do not experience Oppression, and therefore your recent remarks have been ill received",
+        "notes":[],
         "prefix": "",
         "term": "Privilege"
     },
     {
         "altTerms": [],
         "def": "is prejudice or discrimination based on a person's skin color or ethnic origin backed by institutionalized cultural norms. A Racist is a person who promotes Racism. An object is Racist if it promotes Racism. Discrimination based on one's skin color or ethnic origin without the backing of institutional cultural norms is known as Racial Discrimination, not Racism. This controversial definition was discussed here",
+        "notes":[],
         "prefix": "",
         "term": "Racism"
     },
     {
         "altTerms": [],
         "def": "is not simply a Feminist who is radical. A Radical Feminist is a Feminist who focuses on the theory of Patriarchy as a system of power that organizes society into a complex of relationships based on the assertion that male supremacy oppresses women. Radical feminism aims to challenge and overthrow the Patriarchy by opposing standard Gender roles and Oppression of Women and calls for a radical reordering of society. ",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Radical Feminist"
     },
     {
         "altTerms": [],
         "def": "is defined as a Sex Act committed without Consent of the victim. A Rapist is a person who commits a Sex Act without a reasonable belief that the victim consented. A Rape Victim is a person who was Raped",
+        "notes":[],
         "prefix": "",
         "term": "Rape"
     },
@@ -516,32 +589,37 @@
             "Pro-Rape"
         ],
         "def": "refers to speech which excuses, tolerates, or even condones Rape and sexual assault. (ex. \"It's not rape if she's wearing a miniskirt\", \"It's not rape if she isn't resisting\", \"It's not rape if the victim is a man\")",
+        "notes":[],
         "prefix": "",
         "term": "Rape Apologia"
     },
     {
         "altTerms": [],
         "def": "is a culture where prevalent attitudes and practices normalize, excuse, tolerate, or even condone Rape and sexual assault",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Rape Culture"
     },
     {
         "altTerms": [],
         "def": "refers to the belief that feminism is exaggerating the proliferation of Rape in modern society, and that this has many negative effects, including unwarranted fear of rape, and the unwarranted demonization of male sexuality",
+        "notes":[],
         "prefix": "",
         "term": "Rape Hysteria"
     },
     {
-        "altTerms": [
+        "altTerms": [],
+        "def": "Men control more material wealth than Women. This term was debated here. Secoism is a part of Patriarchy",
+        "notes":[
             "or Secoia for short"
         ],
-        "def": "Men control more material wealth than Women. This term was debated here. Secoism is a part of Patriarchy",
         "prefix": "",
         "term": "Secoism"
     },
     {
         "altTerms": [],
         "def": "carries two meanings in different contexts. It can refer to Sex Acts, or to a person's identity as male, female, or Androgynous. Sex differs from Gender in that Gender refers to a social perception, while Sex refers to one's biological birth identity",
+        "notes":[],
         "prefix": "",
         "term": "Sex"
     },
@@ -550,7 +628,8 @@
             "Sex Acts"
         ],
         "def": "denotes contact between the penis and the vulva, or the penis and the anus involving penetration, however slight; contact between the mouth and the penis, vulva, or anus; or penetration of the anal or genital opening of another person by a hand, finger, or other object. Differs from a Sexual Act",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Sex Act"
     },
     {
@@ -561,6 +640,7 @@
             "Anti-pornography"
         ],
         "def": "A person or group of people is said to be Sex-negative if they express opposition to one or more aspects of human sexual behaviour on social or religious ground, usually including pornography and the Sexualization of characters in the entertainment industry. Its opposite is Sex-positive",
+        "notes":[],
         "prefix": "",
         "term": "Sex-negative"
     },
@@ -570,12 +650,14 @@
             "Sex-affirmative"
         ],
         "def": "A person or group of people is said to be Sex-positive if they express support for most aspects of human sexual behaviour. Usually sex-positive activists approve of pornography and the Sexualization of characters in the entertainment industry, though they may oppose some specific aspects of those industries. Its opposite is Sex-negative",
+        "notes":[],
         "prefix": "",
         "term": "Sex-positive"
     },
     {
         "altTerms": [],
         "def": "is prejudice or discrimination based on a person's perceived Sex or Gender. A Sexist is a person who promotes Sexism. An object is Sexist if it promotes Sexism. Sexism is sometimes used as a synonym for Institutional Sexism",
+        "notes":[],
         "prefix": "",
         "term": "Sexism"
     },
@@ -584,18 +666,21 @@
             "Sexual Acts"
         ],
         "def": "is any action performed by one person upon another that is considered by either party to be sexual. Differs from a Sex Act",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Sexual Act"
     },
     {
         "altTerms": [],
         "def": "A species is Sexually Dimorphic if there are innate biological differences between the sexes. Differs from Gender Essentialism in that it accounts for variance between individuals. Humans are a Sexually Dimorphic species",
+        "notes":[],
         "prefix": "",
         "term": "Sexual Dimorphism"
     },
     {
         "altTerms": [],
         "def": "is prejudice or Discrimination based on a person's Sex/Gender",
+        "notes":[],
         "prefix": "",
         "term": "Sexual Discrimination"
     },
@@ -604,6 +689,7 @@
             "Sexually Objectify"
         ],
         "def": "Treating a person as a sex object without Agency (the capacity to independently act). The person is acted upon sexually by the subject",
+        "notes":[],
         "prefix": "",
         "term": "Sexual Objectification"
     },
@@ -612,6 +698,7 @@
             "Sexualize"
         ],
         "def": "A person is Sexualized if the are made to be more sexual, usually referring to the exaggeration of those physical traits that indicate sexual arousal, receptivity, and fertility. Differs from Sexual Objectification in that the person retains Agency. Differs from Hypersexualization by the degree of Sexualization",
+        "notes":[],
         "prefix": "",
         "term": "Sexualization"
     },
@@ -622,6 +709,7 @@
             "Slut-shaming"
         ],
         "def": "is the act of making a person (usually a woman) feel guilty or inferior for certain sexual behaviors or desires that deviate from traditional or orthodox gender expectations",
+        "notes":[],
         "prefix": "",
         "term": "Slut Shaming"
     },
@@ -630,20 +718,23 @@
             "SJW"
         ],
         "def": "is a pejorative term used to describe a person who repeatedly and vehemently engages in arguments on social justice on the Internet, and carries the implication that they often use poorly thought out arguments",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Social Justice Warrior"
     },
     {
-        "altTerms": [
+        "altTerms": [],
+        "def": "Gender roles are culturally enforced. Boys and girls are raised differently. Men and Women are perceived to have different innate strengths and weaknesses. Gender roles may be enforced by overt laws mandating different roles, or may be a subtle social pressure. Certain professions may be considered \"men's work\" while others are considered \"women's work.\" An individual who believes that men and women should be raised differently is Srolist. This term was debated here. Srolism is a part of Patriarchy",
+        "notes":[
             "or Srolia for short"
         ],
-        "def": "Gender roles are culturally enforced. Boys and girls are raised differently. Men and Women are perceived to have different innate strengths and weaknesses. Gender roles may be enforced by overt laws mandating different roles, or may be a subtle social pressure. Certain professions may be considered \"men's work\" while others are considered \"women's work.\" An individual who believes that men and women should be raised differently is Srolist. This term was debated here. Srolism is a part of Patriarchy",
         "prefix": "",
         "term": "Srolism"
     },
     {
         "altTerms": [],
         "def": "a Rape in which the victim does not know the rapist. See Acquaintance Rape",
+        "notes":[],
         "prefix": "",
         "term": "Stranger Rape"
     },
@@ -653,7 +744,8 @@
             "Straw man"
         ],
         "def": "argument refers to a radical misrepresentation of an argument, often to the point of absurdity, such that the argument is indefensible",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Strawman"
     },
     {
@@ -661,18 +753,21 @@
             "TAEP"
         ],
         "def": "Where people debate topics on the gender that they normally do not advocate for. The rules are explained here",
+        "notes":[],
         "prefix": "",
         "term": "The Advocate Exchange Program"
     },
     {
         "altTerms": [],
         "def": "or Trans-Exclusionary Radical Feminist is a Radical Feminist who exclude trans-women from their movement, often under the belief that they aren't really Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "TERF"
     },
     {
         "altTerms": [],
         "def": "is a term for masculine Gender roles that are harmful to those who enact them and/or others, such as violence, sexual aggression, and a lack of emotional expression. It is used in explicit contrast to positive masculine Gender roles. Some formulations ascribe these harmful Gender roles as manifestations of traditional or dimorphic archetypes taken to an extreme, while others attribute them to social pressures resulting from Patriarchy or male hegemony",
+        "notes":[],
         "prefix": "",
         "term": "Toxic Masculinity"
     },
@@ -681,6 +776,7 @@
             "Transsexual"
         ],
         "def": "An individual is Transgender if their self-perception of their Gender does not match their birth Sex. The term Transgendered carries the same meaning, but is regarded negatively, and its use is discouraged",
+        "notes":[],
         "prefix": "",
         "term": "Transgender"
     },
@@ -689,18 +785,21 @@
             "Victim-Blaming"
         ],
         "def": "occurs when the victim of a crime or any wrongful act are held entirely or partially responsible for the transgressions committed against them. Most commonly this implies female victims and male perpetrators in a Stranger Rape scenario",
+        "notes":[],
         "prefix": "",
         "term": "Victim Blaming"
     },
     {
         "altTerms": [],
         "def": "is a person who identifies as a Woman, by Gender. Differs from Cisfemale, which includes birth Sex. See Cismale, Man, Men, Cisfemale, Woman, Women",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Woman"
     },
     {
         "altTerms": [],
         "def": "is a term that refers to all people who identify as a Woman, by Gender. Differs from Cisfemales, which refers to birth Sex. See Cismale, Man, Men, Cisfemale, Woman, Women",
+        "notes":[],
         "prefix": "",
         "term": "Women"
     },
@@ -709,7 +808,8 @@
             "WRA"
         ],
         "def": "is someone who identifies as a WRA, believes in social inequality against Women, and supports movements aimed at defining, establishing, and defending political, economic, and social rights for Women\n\n",
-        "prefix": "A ",
+        "notes":[],
+        "prefix": "A",
         "term": "Women's Rights Activist"
     }
 ]
