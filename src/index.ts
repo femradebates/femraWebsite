@@ -1,4 +1,5 @@
-//import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/firestore'
 
 import './style.scss';
 import {TabSystem} from './components/tabBar'
@@ -27,11 +28,31 @@ tabs.setContent("Definitions",defView)
 
 let definitions: Definition[] = []
 
-for(var i in (<any>defs)){
+/*for(var i in (<any>defs)){
     if (i=="default") continue;
     let def: DefinitionData = (<any>defs)[i]
     definitions.push(new Definition(defView,def))
+}*/
+
+let firebaseConfig={
+    apiKey: "AIzaSyBVO6mnImTz5Z4HECeRjy7IhzUgyxFeM8w",
+    authDomain: "femradebates-751d8.firebaseapp.com",
+    databaseURL: "https://femradebates-751d8.firebaseio.com",
+    projectId: "femradebates-751d8",
+    storageBucket: "femradebates-751d8.appspot.com",
+    messagingSenderId: "891740031011"
 }
+
+firebase.initializeApp(firebaseConfig)
+
+let db=firebase.firestore();
+db.settings({timestampsInSnapshots:true})
+
+db.collection('definitions').get().then((snapshot:any)=>{
+    snapshot.docs.forEach((doc :any) => {
+        definitions.push(new Definition(defView,doc.data()))
+    });
+})
 
 /*firebase.initializeApp({
     apiKey: "AIzaSyBVO6mnImTz5Z4HECeRjy7IhzUgyxFeM8w",

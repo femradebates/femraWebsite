@@ -36,6 +36,7 @@ export class Definition extends Accordion{
 
     get term() : string{return this.data.term}
     get altTerms(): string[] {return this.data.altTerms}
+    get notes() : string[] {return this.data.notes}
     get prefix(): string {return this.data.prefix}
     get def() : string {return this.data.def}
 }
