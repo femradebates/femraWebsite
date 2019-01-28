@@ -14,6 +14,6 @@ npm install
 npm run build
 ```
 
-###Viewing the page
+### Viewing the page
 
 open dist/index.html in your browser of choice.
