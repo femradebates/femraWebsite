@@ -27,23 +27,36 @@ export class Redditor extends Accordion {
         this.data=data;
 
         head.innerHTML=this.uName
+        content.appendChild(this.deletedDisplay);
+        content.classList.add("redditor")
+    }
 
+    private get deletedDisplay() : HTMLElement {
+        let res : HTMLElement = document.createElement('div')
+        
         if(this.deletedThings.length>0){
+            let caption : HTMLSpanElement = document.createElement('span') as HTMLSpanElement;
+            res.appendChild(caption);
+            caption.innerHTML="Users was modded at the following times:"
+
             let deletedList:HTMLUListElement =document.createElement('ul') as HTMLUListElement;
-            content.appendChild(deletedList)
+            res.appendChild(deletedList)
             for(var i in this.deletedThings){
                 let item:HTMLLIElement = document.createElement('li') as HTMLLIElement;
                 let link:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
                 link.href=this.deletedThings[i]
-                link.innerHTML=i.toString()
+                link.target='_blank'
+                link.innerHTML=(+i+1).toString()
                 item.appendChild(link);
                 deletedList.appendChild(item);
             }
         } else {
             let placeHolder: HTMLParagraphElement = document.createElement('p') as HTMLParagraphElement;
-            content.appendChild(placeHolder)
+            res.appendChild(placeHolder)
             placeHolder.innerHTML="This user has never been modded"
         }
+
+        return res;
     }
 
     public get uName() :string {return this.data.uName}

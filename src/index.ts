@@ -57,7 +57,7 @@ let userData:RedditorData={
     uName: "lunar_mycroft",
     flairType: FlairType.none,
     flairText: "",
-    deletedThings: [],
+    deletedThings: ["http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/cxmeoq9","http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/czgoarb"],
     tier: 0
 }
 let exampleUser=new Redditor(userView,userData)
