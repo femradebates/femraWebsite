@@ -247,17 +247,17 @@
         "term": "Gender Constructivism"
     },
     {
-        "altTerms": [],
-        "def": "or Egalitarian Culture, is a society in which neither Men nor Women are a Privileged Gender Class",
+        "altTerms": ["Egalitarian Culture"],
+        "def": "is a society in which neither Men nor Women are a Privileged Gender Class",
         "notes":[],
         "prefix": "A",
         "term": "Gender Egalitarian Culture"
     },
     {
         "altTerms": [],
-        "def": "A term is Gendered if it carries a connotation of a specific Gender. Examples include \"slut\", \"bitch\", \"bastard\", \"patriarchy\", and \"mansplaining\"",
+        "def": "if it carries a connotation of a specific Gender. Examples include \"slut\", \"bitch\", \"bastard\", \"patriarchy\", and \"mansplaining\"",
         "notes":[],
-        "prefix": "",
+        "prefix": "A term is",
         "term": "Gendered"
     },
     {
@@ -407,11 +407,9 @@
         "term": "Mansplaining"
     },
     {
-        "altTerms": [
-            "usually pejoratively"
-        ],
+        "altTerms": [],
         "def": "to refer to MRM, MGTOW, and PUA blogs, message boards, and other online spaces",
-        "notes":[],
+        "notes":["usually pejorative"],
         "prefix": "The",
         "term": "Manosphere"
     },
@@ -432,7 +430,9 @@
     {
         "altTerms": [
             "MRM",
-            "Men's Rights"
+            "Men's Rights",
+            "Men's Human Rights Movement",
+            "MHRM"
         ],
         "def": "or Men's Human Rights Movement (MHRM) is a collection of movements and ideologies aimed at defining, establishing, and defending political, economic, and social rights for Men",
         "notes":[],
