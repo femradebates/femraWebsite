@@ -5,6 +5,7 @@ import './style.scss';
 import {TabSystem} from './components/tabBar'
 import {Accordion} from './components/accordion'
 import {DefinitionData,Definition} from './components/definition'
+import {RedditorData,FlairType,Redditor} from './components/redditor'
 
 //import * as defs from './data/definitions.json'
 
@@ -21,12 +22,14 @@ document.body.innerHTML+=`
 let tabBar:HTMLDivElement = document.getElementById("tab-bar") as HTMLDivElement
 let mainContent: HTMLDivElement = document.getElementById("main-content") as HTMLDivElement
 
-let tabs : TabSystem = new TabSystem(["Definitions","Users and tiers "],tabBar,mainContent)
+let tabs : TabSystem = new TabSystem(["Definitions","Users and tiers"],tabBar,mainContent)
 
-let defView :HTMLElement=document.createElement('div');
+let defView : HTMLElement=document.createElement('div');
+let userView : HTMLElement=document.createElement('div');
+
 tabs.setContent("Definitions",defView)
+tabs.setContent("Users and tiers",userView)
 
-let definitions: Definition[] = []
 
 let firebaseConfig={
     apiKey: "AIzaSyBVO6mnImTz5Z4HECeRjy7IhzUgyxFeM8w",
@@ -42,9 +45,19 @@ firebase.initializeApp(firebaseConfig)
 let db=firebase.firestore();
 db.settings({timestampsInSnapshots:true})
 
+let definitions: Definition[] = []
+
 db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
     snapshot.docs.forEach((doc :any) => {
         definitions.push(new Definition(defView,doc.data()))
     });
 })
 
+let userData:RedditorData={
+    uName: "lunar_mycroft",
+    flairType: FlairType.none,
+    flairText: "",
+    deletedThings: [],
+    tier: 0
+}
+let exampleUser=new Redditor(userView,userData)
