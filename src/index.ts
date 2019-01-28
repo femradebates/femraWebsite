@@ -6,7 +6,7 @@ import {TabSystem} from './components/tabBar'
 import {Accordion} from './components/accordion'
 import {DefinitionData,Definition} from './components/definition'
 
-import * as defs from './data/definitions.json'
+//import * as defs from './data/definitions.json'
 
 document.title="FeMRADebates: Discuss Gender Equality"
 
@@ -28,12 +28,6 @@ tabs.setContent("Definitions",defView)
 
 let definitions: Definition[] = []
 
-/*for(var i in (<any>defs)){
-    if (i=="default") continue;
-    let def: DefinitionData = (<any>defs)[i]
-    definitions.push(new Definition(defView,def))
-}*/
-
 let firebaseConfig={
     apiKey: "AIzaSyBVO6mnImTz5Z4HECeRjy7IhzUgyxFeM8w",
     authDomain: "femradebates-751d8.firebaseapp.com",
@@ -48,25 +42,9 @@ firebase.initializeApp(firebaseConfig)
 let db=firebase.firestore();
 db.settings({timestampsInSnapshots:true})
 
-db.collection('definitions').get().then((snapshot:any)=>{
+db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
     snapshot.docs.forEach((doc :any) => {
         definitions.push(new Definition(defView,doc.data()))
     });
 })
-
-/*firebase.initializeApp({
-    apiKey: "AIzaSyBVO6mnImTz5Z4HECeRjy7IhzUgyxFeM8w",
-    authDomain: "femradebates-751d8.firebaseapp.com",
-    databaseURL: "femradebates-751d8.firebaseio.com",
-    prodjectId: "femradebates-751d8",
-    storageBucket: "femradebates-751d8.appspot.com",
-    messagingSenderId: "891740031011"
-});
-
-let database:any =firebase.database();
-
-database.ref('definitions/').on('value',(snapshot:any)=>{
-    console.log(snapshot.val())
-    alert("on()")
-})*/
 
