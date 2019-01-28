@@ -10,10 +10,10 @@ $box-shading-color: rgba(0,0,0,.5);
 body{
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 200px minmax(200px,1fr) 200px;
+  grid-template-columns: 100px minmax(200px,1fr) 200px;
   grid-template-areas:
-  "....... header  header"
-  "sidebar content content";
+  "....... header  login"
+  "leftbar content rightbar";
   perspective: 800px;
 }
 
