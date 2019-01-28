@@ -16,4 +16,4 @@ npm run build
 
 ### Viewing the page
 
-open dist/index.html in your browser of choice.
+open ``dist/index.html`` in your browser of choice.
