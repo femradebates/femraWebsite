@@ -25,7 +25,9 @@ let mainContent: HTMLDivElement = document.getElementById("main-content") as HTM
 let tabs : TabSystem = new TabSystem(["Definitions","Users and tiers"],tabBar,mainContent)
 
 let defView : HTMLElement=document.createElement('div');
+defView.innerHTML="Loading definitions"
 let userView : HTMLElement=document.createElement('div');
+userView.innerHTML="Loading users"
 
 tabs.setContent("Definitions",defView)
 tabs.setContent("Users and tiers",userView)
@@ -48,6 +50,7 @@ db.settings({timestampsInSnapshots:true})
 let definitions: Definition[] = []
 
 db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
+    while(defView.firstChild) defView.removeChild(defView.firstChild)
     snapshot.docs.forEach((doc :any) => {
         definitions.push(new Definition(defView,doc.data()))
     });
@@ -60,4 +63,7 @@ let userData:RedditorData={
     deletedThings: ["http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/cxmeoq9","http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/czgoarb"],
     tier: 0
 }
+
+while(userView.firstChild) defView.removeChild(userView.firstChild)
+
 let exampleUser=new Redditor(userView,userData)
