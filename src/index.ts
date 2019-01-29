@@ -64,6 +64,6 @@ let userData:RedditorData={
     tier: 0
 }
 
-while(userView.firstChild) defView.removeChild(userView.firstChild)
+while(userView.firstChild) userView.removeChild(userView.firstChild)
 
 let exampleUser=new Redditor(userView,userData)
