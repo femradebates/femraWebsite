@@ -18,6 +18,14 @@ export class UserDisplay{
             else
                 this.logout();
         };
+        this.bt.onmouseenter=(ev:MouseEvent)=>{
+            if(this.loggedOn){
+                this.bt.innerHTML="Logout";
+            }
+        }
+        this.bt.onmouseleave=(ev:MouseEvent)=>{
+            this.updateUser()
+        }
 
         this.closeButton = document.createElement('a');
         this.closeButton.onclick=(ev:MouseEvent) =>{this.overlayShow=false;};
@@ -61,6 +69,7 @@ export class UserDisplay{
     }
 
     private logout():void{
+        if (!confirm("Are you sure you want to log out?")) return;
         firebase.auth().signOut().then(function() {
             console.log("signed out");
           }, function(error:any) {
