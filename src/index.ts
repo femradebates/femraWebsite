@@ -1,11 +1,14 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore'
 
+
+
 import './style.scss';
 import {TabSystem} from './components/tabBar'
-import {Accordion} from './components/accordion'
+//import {Accordion} from './components/accordion'
 import {DefinitionData,Definition} from './components/definition'
 import {RedditorData,FlairType,Redditor} from './components/redditor'
+import {UserDisplay} from './components/userDisplay'
 
 //import * as defs from './data/definitions.json'
 
@@ -13,9 +16,11 @@ document.title="FeMRADebates: Discuss Gender Equality"
 
 document.body.innerHTML+=`
     <div id="tab-bar">
-        
     </div>
+    <div id="login"></div>
     <div id="main-content">
+    </div>
+    <div class="overlay">
     </div>
 `
 
@@ -67,3 +72,5 @@ let userData:RedditorData={
 while(userView.firstChild) userView.removeChild(userView.firstChild)
 
 let exampleUser=new Redditor(userView,userData)
+
+let loginWidget=new UserDisplay(document.getElementsByClassName("overlay")[0] as HTMLElement,document.getElementById('login'))
