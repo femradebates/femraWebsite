@@ -17,7 +17,7 @@ document.title="FeMRADebates: Discuss Gender Equality"
 document.body.innerHTML+=`
     <div id="tab-bar">
     </div>
-    <div id="login">Login Info</div>
+    <div id="login"></div>
     <div id="main-content">
     </div>
     <div class="overlay">
