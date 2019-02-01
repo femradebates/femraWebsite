@@ -41,6 +41,7 @@ export class Redditor extends Accordion {
         head.innerHTML=this.uName
         content.classList.add("redditor")
         this.onOpen=()=>{if(!this.loaded) this.loadFullData();}
+        content.innerHTML="Loading user data"
     }
 
     private loadFullData():void{
@@ -58,6 +59,7 @@ export class Redditor extends Accordion {
     }
 
     private updateContent():void{
+        while(this.content.firstChild) this.content.removeChild(this.content.firstChild)
         let uNameDisp:HTMLElement=document.createElement('b');
         uNameDisp.innerHTML=this.uName;
         this.content.appendChild(uNameDisp);

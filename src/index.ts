@@ -51,6 +51,7 @@ let db=firebase.firestore();
 db.settings({timestampsInSnapshots:true})
 
 let definitions: Definition[] = []
+let redditors: Redditor[] = [];
 
 db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
     while(defView.firstChild) defView.removeChild(defView.firstChild)
@@ -59,15 +60,12 @@ db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
     });
 })
 
-let userData:RedditorData={
-    uName: "lunar_mycroft",
-    flairType: FlairType.none,
-    flairText: "",
-    deletedThings: ["http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/cxmeoq9","http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/czgoarb"],
-    tier: 0
-}
-
-while(userView.firstChild) userView.removeChild(userView.firstChild)
+db.collection('redditors').doc('allUsers').get().then((doc:any)=>{
+    while(userView.firstChild) userView.removeChild(userView.firstChild)
+    for(var name of doc.data().list){
+        redditors.push(new Redditor(userView,name,db))
+    }
+})
 
 let exampleUser=new Redditor(userView,"lunar_mycroft",db);
 

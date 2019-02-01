@@ -103,7 +103,6 @@ body{
   font-family: sans-serif;
   font-size: 18px;
   background-color: $primary;
-
 }
 
 
@@ -156,17 +155,17 @@ body{
 }
 
 .accordian-wrapper:hover{
-  transform: translatez(1.5px);
+  transform: scale(1.006);
   box-shadow: 3px 3px 15px $box-shading-color;
 }
 
 .accordian-wrapper.active{
-  transform: translatez(1px);
+  transform: scale(1.004);;
   box-shadow: 2px 2px 10px $box-shading-color;
 }
 
 .accordian-wrapper.active:hover{
-  transform: translatez(1.5px);
+  transform: scale(1.006);
   box-shadow: 3px 3px 15px $box-shading-color;
 }
 
