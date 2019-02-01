@@ -1,8 +1,6 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore'
 
-
-
 import './style.scss';
 import {TabSystem} from './components/tabBar'
 //import {Accordion} from './components/accordion'
@@ -71,6 +69,6 @@ let userData:RedditorData={
 
 while(userView.firstChild) userView.removeChild(userView.firstChild)
 
-let exampleUser=new Redditor(userView,userData)
+let exampleUser=new Redditor(userView,"lunar_mycroft",db);
 
 let loginWidget=new UserDisplay(document.getElementsByClassName("overlay")[0] as HTMLElement,document.getElementById('login'))

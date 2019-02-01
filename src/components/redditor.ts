@@ -1,13 +1,16 @@
+import * as firebase from 'firebase/app';
+import 'firebase/firestore'
+
 import { Accordion } from "./accordion";
 
 export enum FlairType{
+    none,
     feminist,
     casualFeminist,
     neutral,
     casualMRA,
     mra,
-    other,
-    none
+    other
 }
 
 export interface RedditorData{
@@ -20,15 +23,46 @@ export interface RedditorData{
 
 export class Redditor extends Accordion {
     private data: RedditorData;
-    constructor(parent:HTMLElement,data:RedditorData){
+    private loaded: false;
+    private db:any;
+    constructor(parent:HTMLElement,uName:string,db:any){
         let head:HTMLDivElement=document.createElement('div') as HTMLDivElement;
         let content:HTMLDivElement = document.createElement('div') as HTMLDivElement;
         super(parent,head,content)
-        this.data=data;
-
+        this.db=db;
+        this.data={
+            uName:uName,
+            flairType:FlairType.none,
+            flairText:"",
+            deletedThings:[],
+            tier:0
+        };
+        this.loaded=false;
         head.innerHTML=this.uName
-        content.appendChild(this.deletedDisplay);
         content.classList.add("redditor")
+        this.onOpen=()=>{if(!this.loaded) this.loadFullData();}
+    }
+
+    private loadFullData():void{
+        this.db.collection('redditors').doc(this.ID).get().then((doc:any)=>{
+            if(!doc.exists){
+                console.log("Attempted to read user "+this.ID+" but they don't exist")
+                return
+            }
+            this.data.flairType = doc.data().flairType;
+            this.data.flairText = doc.data().flairText;
+            this.data.deletedThings = doc.data().deletedThings;
+            this.data.tier = doc.data().tier;
+            this.updateContent()
+        })
+    }
+
+    private updateContent():void{
+        let uNameDisp:HTMLElement=document.createElement('b');
+        uNameDisp.innerHTML=this.uName;
+        this.content.appendChild(uNameDisp);
+        this.content.innerHTML+=" is at tier "+this.tier.toString()+" of the ban system.<br>";
+        this.content.appendChild(this.deletedDisplay);
     }
 
     private get deletedDisplay() : HTMLElement {
@@ -60,6 +94,10 @@ export class Redditor extends Accordion {
     }
 
     public get uName() :string {return this.data.uName}
+    private get ID():string{
+        if (this.uName.substr(0,2)=='__') return '\\'+this.uName;
+        return this.uName;
+    }
     public get flairType() : FlairType {return this.data.flairType}
     public get flairText() : string {return this.data.flairText}
     public get deletedThings() : string[] {return this.data.deletedThings}

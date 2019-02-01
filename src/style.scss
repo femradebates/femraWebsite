@@ -44,6 +44,7 @@ body{
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 5px;
 
   width: 300px;
   max-height: fit-content;
@@ -85,11 +86,17 @@ body{
 .overlay #loginContainer button:hover{
   background-color: $primary-dark;
   color:$primary-darkText;
-  border:2px $primary-darkText;
-  padding:5px;
-  box-shadow: 3px 3px 10px $box-shading-color;
+  box-shadow: 1px 1px 5px $box-shading-color;
+  transform: translatez(.5);;
 }
 
+.overlay #loginContainer button:active{
+  background-color: $primary-dark;
+  color:$primary-darkText;
+  border:2px $primaryText;
+  box-shadow: none;
+  transform: none;
+}
 
 #tab-bar{
   grid-area: header;

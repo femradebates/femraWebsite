@@ -3,6 +3,8 @@ export class Accordion{
     private cont:HTMLElement
     private wrap:HTMLDivElement
 
+    public onOpen: ()=>void;
+
     constructor(parent:HTMLElement,button:HTMLDivElement,content:HTMLDivElement){
 
         this.head=button;
@@ -19,6 +21,8 @@ export class Accordion{
         this.wrap.appendChild(this.cont)
         this.open=false
         parent.appendChild(this.wrap)
+
+        this.onOpen=()=>{};
     }
 
     public get content(): HTMLElement{return this.cont}
@@ -30,7 +34,10 @@ export class Accordion{
 
     public get open() : boolean{return this.wrap.classList.contains("active")}
     public set open(val:boolean) {
-        if (val) this.wrap.classList.add("active")
+        if (val){
+            this.wrap.classList.add("active")
+            this.onOpen();
+        } 
         else this.wrap.classList.remove("active")
     }
 }
