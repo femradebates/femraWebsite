@@ -237,3 +237,17 @@ body{
 .accordian-content.redditor li:hover a{
   color: $primary-darkText;
 }
+
+.userModActions{
+  width: 100%;
+  background-color:red;
+}
+
+.needLoggedOn{
+  display: none;
+}
+
+.needMod{
+  display: none;
+}
+

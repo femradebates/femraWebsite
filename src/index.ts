@@ -8,6 +8,7 @@ import {DefinitionData,Definition} from './components/definition'
 import {RedditorData,FlairType,Redditor} from './components/redditor'
 import {UserDisplay} from './components/userDisplay'
 
+
 //import * as defs from './data/definitions.json'
 
 document.title="FeMRADebates: Discuss Gender Equality"
@@ -67,6 +68,4 @@ db.collection('redditors').doc('allUsers').get().then((doc:any)=>{
     }
 })
 
-let exampleUser=new Redditor(userView,"lunar_mycroft",db);
-
-let loginWidget=new UserDisplay(document.getElementsByClassName("overlay")[0] as HTMLElement,document.getElementById('login'))
+let loginWidget=new UserDisplay(document.getElementsByClassName("overlay")[0] as HTMLElement,document.getElementById('login'),db)

@@ -65,6 +65,11 @@ export class Redditor extends Accordion {
         this.content.appendChild(uNameDisp);
         this.content.innerHTML+=" is at tier "+this.tier.toString()+" of the ban system.<br>";
         this.content.appendChild(this.deletedDisplay);
+
+        let modSection:HTMLElement=document.createElement('div');
+        modSection.innerHTML="Mod stuff goes here!";
+        modSection.classList.add("needLoggedOn","needMod","userModActions")
+        this.content.appendChild(modSection);
     }
 
     private get deletedDisplay() : HTMLElement {
