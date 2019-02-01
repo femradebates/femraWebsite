@@ -5,6 +5,7 @@ $primary: #90a4ae;
 $primary-dark: #62757f;
 $primary-light: #c1d5e0;
 $primaryText: black;
+$primary-lightText: black;
 $primary-darkText: white;
 
 $box-shading-color: rgba(0,0,0,.5);
@@ -214,7 +215,7 @@ body{
 
 .accordian-content.redditor ul{
   list-style-type: none;
-  padding: 0;
+
   display: inline;
 }
 
@@ -228,6 +229,7 @@ body{
 
 .accordian-content.redditor li a{
   text-decoration: none;
+  color: $primaryText;
 }
 
 .accordian-content.redditor li:hover{
@@ -238,9 +240,28 @@ body{
   color: $primary-darkText;
 }
 
+.accordian-content.redditor li span{
+  border: none;
+  background-color: $primary-dark;
+  color:$primary-darkText;
+  margin: 5px 5px 5px 5px;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+.accordian-content.redditor li:hover span{
+  background-color: $primary;
+  color: $primaryText;
+}
+
+.accordian-content.redditor li:hover span:hover{
+  background-color: $primary-light;
+  color: $primary-lightText;
+}
+
 .userModActions{
   width: 100%;
-  margin:2px;
+  margin:20px;
 }
 
 .needLoggedOn{
@@ -250,4 +271,3 @@ body{
 .needMod{
   display: none;
 }
-

@@ -14,55 +14,72 @@ export enum FlairType{
     other
 }
 
-class DeletedDisplay{
+class ModAct{
     private redditor:Redditor;
-    private container:HTMLElement;
-    private deletedList:HTMLUListElement;
-    private listOfThing:HTMLLIElement[];
-    private placeHolder:HTMLElement;
-    constructor(redditor:Redditor){
+    private superContainer: HTMLUListElement;
+    private container: HTMLLIElement;
+    private num:HTMLAnchorElement;
+    private delButton:HTMLSpanElement;
+    private n_:number;
+    private prev:ModAct;
+    private next:ModAct;
+
+    constructor(url:string,redditor:Redditor, first:boolean=true){
         this.redditor=redditor;
-
-        this.container=document.createElement('div');
-        this.listOfThing=[];
-        this.update();
+        this.container=document.createElement('li');
+        if (first){
+            this.superContainer=document.createElement('ul');
+            this.superContainer.appendChild(this.container)
+        }
+        this.num=document.createElement('a');
+        this.container.appendChild(this.num);
+        this.num.href=url;
+        this.n=0;
+        this.prev=null;
+        this.next=null;
+        this.delButton=document.createElement('span');
+        this.container.appendChild(this.delButton);
+        this.delButton.classList.add("needLoggedOn","needMod");
+        this.delButton.innerHTML='&times;'
+        this.delButton.onclick=(ev:MouseEvent)=>{
+            this.redditor.removeDeletedThing(this.n,confirm("Forgive user?"))
+        }
     }
 
-    public update():void{
-        clearHTMLElement(this.container);
-        if(this.redditor.deletedThings.length<=0){
-            this.placeHolder = document.createElement('span');
-            this.container.appendChild(this.placeHolder)
-            this.placeHolder.innerHTML="This user has never been modded"
-            return;
-        }
-        for(var i in this.redditor.deletedThings){
-            this.addDeletedThing(this.redditor.deletedThings[i]);
-        }
+    public push(url:string):ModAct{
+        let res:ModAct=new ModAct(url,this.redditor,false);
+        res.superContainer=this.superContainer;
+        res.superContainer.appendChild(res.container);
+        res.prev=this;
+        this.next=res;
+        res.n=this.n+1;
+
+        return res;
     }
 
-    public get element():HTMLElement{
-        return this.container;
+    public remove(index:number):ModAct{
+        if (index==this.n){
+            this.superContainer.removeChild(this.container);
+            if(this.prev!=null) this.prev.next=this.next;
+            if(this.next!=null){
+                this.next.prev=this.prev;
+                this.next.n--;
+            }
+            return this.prev
+        }
+        if (this.prev!=null) this.prev.remove(index);
+        return this;
     }
 
-    public addDeletedThing(url:string){
-        if(this.redditor.deletedThings.length<=0){
-            this.container.removeChild(this.placeHolder);
-            let caption : HTMLSpanElement = document.createElement('span') as HTMLSpanElement;
-            this.container.appendChild(caption);
-            caption.innerHTML="Users was modded at the following times:"
-            this.deletedList = document.createElement('ul') as HTMLUListElement;
-            this.container.appendChild(this.deletedList)
-        }
-        this.redditor.deletedThings.push(url);
-        let item:HTMLLIElement = document.createElement('li') as HTMLLIElement;
-        this.listOfThing.push(item);
-        let link:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
-        link.href=url
-        link.target='_blank'
-        link.innerHTML=(this.listOfThing.length).toString();
-        item.appendChild(link);
-        this.deletedList.appendChild(item);
+    public get n():number{return this.n_}
+    public set n(val:number){
+        this.n_=Math.floor(val);
+        this.num.innerHTML=this.n.toString();
+        if(this.next!=null) this.next.n=1+this.n;
+    }
+
+    public get element() : HTMLUListElement{
+        return this.superContainer;
     }
 }
 
@@ -120,8 +137,8 @@ class ModTools{
         this.tierToggle.title="Tier user for this act?"
         this.newLink.placeholder="enter comment url here";
 
-        this.modButtons.style.cssFloat="right"
-        this.tierButtons.style.cssFloat="left"
+        //this.modButtons.style.cssFloat="right"
+        //this.tierButtons.style.cssFloat="left"
     }
 
     public get element():HTMLElement{
@@ -142,7 +159,7 @@ export class Redditor extends Accordion {
     private loaded: false;
     private db:any;
 
-    private deletedDisplay: DeletedDisplay;
+    private modActs: ModAct;
     private modTools:ModTools;
     constructor(parent:HTMLElement,uName:string,db:any){
         let head:HTMLDivElement=document.createElement('div') as HTMLDivElement;
@@ -162,7 +179,7 @@ export class Redditor extends Accordion {
         this.onOpen=()=>{if(!this.loaded) this.loadFullData();}
         content.innerHTML="Loading user data"
 
-        this.deletedDisplay=new DeletedDisplay(this);
+        this.modActs=null;
         this.modTools=new ModTools(this);
     }
 
@@ -186,7 +203,6 @@ export class Redditor extends Accordion {
         uNameDisp.innerHTML=this.uName;
         this.content.appendChild(uNameDisp);
         this.content.innerHTML+=" is at tier "+this.tier.toString()+" of the ban system.<br>";
-        this.content.appendChild(this.deletedDisplay.element);
 
         this.content.appendChild(this.modTools.element);
     }
@@ -212,6 +228,15 @@ export class Redditor extends Accordion {
     }
 
     public addDeletedThing(url:string){
-        this.deletedDisplay.addDeletedThing(url);
+        if(this.modActs==null){
+            this.modActs=new ModAct(url,this);
+            this.content.insertBefore(this.modActs.element,this.modTools.element);
+        } else this.modActs=this.modActs.push(url);
+        this.deletedThings.push(url);
+    }
+
+    public removeDeletedThing(index:number,forgive:boolean){
+        this.deletedThings.splice(index,1);
+        this.modActs=this.modActs.remove(index);
     }
 }
