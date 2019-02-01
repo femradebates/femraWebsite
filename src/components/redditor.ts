@@ -17,40 +17,52 @@ export enum FlairType{
 class DeletedDisplay{
     private redditor:Redditor;
     private container:HTMLElement;
+    private deletedList:HTMLUListElement;
+    private listOfThing:HTMLLIElement[];
     private placeHolder:HTMLElement;
     constructor(redditor:Redditor){
         this.redditor=redditor;
 
         this.container=document.createElement('div');
+        this.listOfThing=[];
         this.update();
     }
 
     public update():void{
         clearHTMLElement(this.container);
         if(this.redditor.deletedThings.length<=0){
-            this.placeHolder = document.createElement('p');
+            this.placeHolder = document.createElement('span');
             this.container.appendChild(this.placeHolder)
             this.placeHolder.innerHTML="This user has never been modded"
             return;
         }
-        let caption : HTMLSpanElement = document.createElement('span') as HTMLSpanElement;
-        this.container.appendChild(caption);
-        caption.innerHTML="Users was modded at the following times:"
-        let deletedList:HTMLUListElement =document.createElement('ul') as HTMLUListElement;
-        this.container.appendChild(deletedList)
         for(var i in this.redditor.deletedThings){
-            let item:HTMLLIElement = document.createElement('li') as HTMLLIElement;
-            let link:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
-            link.href=this.redditor.deletedThings[i]
-            link.target='_blank'
-            link.innerHTML=(+i+1).toString()
-            item.appendChild(link);
-            deletedList.appendChild(item);
+            this.addDeletedThing(this.redditor.deletedThings[i]);
         }
     }
 
     public get element():HTMLElement{
         return this.container;
+    }
+
+    public addDeletedThing(url:string){
+        if(this.redditor.deletedThings.length<=0){
+            this.container.removeChild(this.placeHolder);
+            let caption : HTMLSpanElement = document.createElement('span') as HTMLSpanElement;
+            this.container.appendChild(caption);
+            caption.innerHTML="Users was modded at the following times:"
+            this.deletedList = document.createElement('ul') as HTMLUListElement;
+            this.container.appendChild(this.deletedList)
+        }
+        this.redditor.deletedThings.push(url);
+        let item:HTMLLIElement = document.createElement('li') as HTMLLIElement;
+        this.listOfThing.push(item);
+        let link:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+        link.href=url
+        link.target='_blank'
+        link.innerHTML=(this.listOfThing.length).toString();
+        item.appendChild(link);
+        this.deletedList.appendChild(item);
     }
 }
 
@@ -82,9 +94,14 @@ class ModTools{
         this.newLink.type="text";
         this.tierToggle=document.createElement('input') as HTMLInputElement;
         this.tierToggle.type="checkbox"
+        this.tierToggle.checked=false
 
         this.tierBt.onclick=(ev:MouseEvent)=>{this.redditor.punish()};
         this.forgiveBt.onclick=(ev:MouseEvent)=>{this.redditor.forgive()}
+        this.subButton.onclick=(ev:MouseEvent)=>{
+            this.redditor.addDeletedThing(this.newLink.value)
+            if(this.tierToggle.checked) this.redditor.punish()
+        }
 
         this.container.appendChild(this.tierBt);
         this.container.appendChild(this.forgiveBt);
@@ -178,5 +195,9 @@ export class Redditor extends Accordion {
         if (this.tier==0) return;
         this.data.tier--;
         this.updateContent();
+    }
+
+    public addDeletedThing(url:string){
+        this.deletedDisplay.addDeletedThing(url);
     }
 }
