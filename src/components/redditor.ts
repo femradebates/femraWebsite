@@ -71,6 +71,9 @@ class ModTools{
 
     private container:HTMLElement;
 
+    private tierButtons:HTMLDivElement;
+    private modButtons:HTMLDivElement;
+
     private tierBt:HTMLButtonElement;
     private forgiveBt:HTMLButtonElement;
     private newLink:HTMLInputElement;
@@ -81,6 +84,9 @@ class ModTools{
 
         this.container=document.createElement('div');
         this.container.classList.add("needLoggedOn","needMod","userModActions");
+
+        this.tierButtons=document.createElement('div') as HTMLDivElement;
+        this.modButtons=document.createElement('div') as HTMLDivElement;
 
 
         this.tierBt=document.createElement('button') as HTMLButtonElement;
@@ -103,11 +109,19 @@ class ModTools{
             if(this.tierToggle.checked) this.redditor.punish()
         }
 
-        this.container.appendChild(this.tierBt);
-        this.container.appendChild(this.forgiveBt);
-        this.container.appendChild(this.newLink);
-        this.container.appendChild(this.tierToggle);
-        this.container.appendChild(this.subButton);
+        this.tierButtons.appendChild(this.tierBt);
+        this.tierButtons.appendChild(this.forgiveBt);
+        this.modButtons.appendChild(this.newLink);
+        this.modButtons.appendChild(this.tierToggle);
+        this.modButtons.appendChild(this.subButton);
+        this.container.appendChild(this.tierButtons);
+        this.container.appendChild(this.modButtons);
+
+        this.tierToggle.title="Tier user for this act?"
+        this.newLink.placeholder="enter comment url here";
+
+        this.modButtons.style.cssFloat="right"
+        this.tierButtons.style.cssFloat="left"
     }
 
     public get element():HTMLElement{
