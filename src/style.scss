@@ -213,6 +213,10 @@ body{
   border-radius: 0px 0px 0px 10px;
 }
 
+.accordian-content.redditor{
+  height: fit-content;
+}
+
 .accordian-content.redditor ul{
   list-style-type: none;
 
@@ -261,7 +265,31 @@ body{
 
 .userModActions{
   width: 100%;
+  height: fit-content;
   margin:20px;
+}
+
+.userModActions div{
+  display: inline-block;
+  padding:4px;
+}
+
+.userModActions button{
+  background-color: $primary;
+  border: none;
+  border-radius: 4px;
+  padding:6px;
+  margin:4px;
+}
+
+.userModActions button:hover{
+  background-color: $primary-dark;
+  color:$primary-darkText;
+}
+
+.userModActions button:hover{
+  background-color: $primary-dark;
+  color:$primary-darkText;
 }
 
 .needLoggedOn{

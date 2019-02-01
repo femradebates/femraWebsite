@@ -137,8 +137,8 @@ class ModTools{
         this.tierToggle.title="Tier user for this act?"
         this.newLink.placeholder="enter comment url here";
 
-        //this.modButtons.style.cssFloat="right"
-        //this.tierButtons.style.cssFloat="left"
+        this.modButtons.style.cssFloat="right"
+        this.tierButtons.style.cssFloat="left"
     }
 
     public get element():HTMLElement{

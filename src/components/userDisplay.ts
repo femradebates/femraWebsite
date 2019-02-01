@@ -66,12 +66,12 @@ export class UserDisplay{
 
             let loggedOnRule: CSSStyleRule=getStyleBySelector(".needLoggedOn");
             let isModRule:CSSStyleRule=getStyleBySelector(".needMod");
-            loggedOnRule.style.display= this.loggedOn ? "inline" : "none"
+            loggedOnRule.style.display= this.loggedOn ? "inline-block" : "none"
             
             this.db.collection('userGroups').doc('mods').get().then((doc:any)=>{
                 if(this.user==null) return;
                 this.isMod_=doc.data().members.includes(this.user.uid)
-                isModRule.style.display= this.isMod ? "inline" : "none"
+                isModRule.style.display= this.isMod ? "inline-block" : "none"
             }).catch(function(error:any) {
                 console.log("Error getting document:", error);
             });
