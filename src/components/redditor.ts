@@ -2,6 +2,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/firestore'
 
 import { Accordion } from "./accordion";
+import {clearHTMLElement} from ".././utility/clearHTMLElement"
 
 export enum FlairType{
     none,
@@ -11,6 +12,90 @@ export enum FlairType{
     casualMRA,
     mra,
     other
+}
+
+class DeletedDisplay{
+    private redditor:Redditor;
+    private container:HTMLElement;
+    private placeHolder:HTMLElement;
+    constructor(redditor:Redditor){
+        this.redditor=redditor;
+
+        this.container=document.createElement('div');
+        this.update();
+    }
+
+    public update():void{
+        clearHTMLElement(this.container);
+        if(this.redditor.deletedThings.length<=0){
+            this.placeHolder = document.createElement('p');
+            this.container.appendChild(this.placeHolder)
+            this.placeHolder.innerHTML="This user has never been modded"
+            return;
+        }
+        let caption : HTMLSpanElement = document.createElement('span') as HTMLSpanElement;
+        this.container.appendChild(caption);
+        caption.innerHTML="Users was modded at the following times:"
+        let deletedList:HTMLUListElement =document.createElement('ul') as HTMLUListElement;
+        this.container.appendChild(deletedList)
+        for(var i in this.redditor.deletedThings){
+            let item:HTMLLIElement = document.createElement('li') as HTMLLIElement;
+            let link:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
+            link.href=this.redditor.deletedThings[i]
+            link.target='_blank'
+            link.innerHTML=(+i+1).toString()
+            item.appendChild(link);
+            deletedList.appendChild(item);
+        }
+    }
+
+    public get element():HTMLElement{
+        return this.container;
+    }
+}
+
+class ModTools{
+    private redditor:Redditor;
+
+    private container:HTMLElement;
+
+    private tierBt:HTMLButtonElement;
+    private forgiveBt:HTMLButtonElement;
+    private newLink:HTMLInputElement;
+    private tierToggle:HTMLInputElement;
+    private subButton:HTMLButtonElement;
+    constructor(redditor:Redditor){
+        this.redditor=redditor;
+
+        this.container=document.createElement('div');
+        this.container.classList.add("needLoggedOn","needMod","userModActions");
+
+
+        this.tierBt=document.createElement('button') as HTMLButtonElement;
+        this.tierBt.innerHTML="++tier"
+        this.forgiveBt=document.createElement('button') as HTMLButtonElement;
+        this.forgiveBt.innerHTML="--tier"
+        this.subButton=document.createElement('button') as HTMLButtonElement;
+        this.subButton.innerHTML="Mod for new link"
+
+        this.newLink=document.createElement('input') as HTMLInputElement;
+        this.newLink.type="text";
+        this.tierToggle=document.createElement('input') as HTMLInputElement;
+        this.tierToggle.type="checkbox"
+
+        this.tierBt.onclick=(ev:MouseEvent)=>{this.redditor.punish()};
+        this.forgiveBt.onclick=(ev:MouseEvent)=>{this.redditor.forgive()}
+
+        this.container.appendChild(this.tierBt);
+        this.container.appendChild(this.forgiveBt);
+        this.container.appendChild(this.newLink);
+        this.container.appendChild(this.tierToggle);
+        this.container.appendChild(this.subButton);
+    }
+
+    public get element():HTMLElement{
+        return this.container
+    }
 }
 
 export interface RedditorData{
@@ -25,6 +110,9 @@ export class Redditor extends Accordion {
     private data: RedditorData;
     private loaded: false;
     private db:any;
+
+    private deletedDisplay: DeletedDisplay;
+    private modTools:ModTools;
     constructor(parent:HTMLElement,uName:string,db:any){
         let head:HTMLDivElement=document.createElement('div') as HTMLDivElement;
         let content:HTMLDivElement = document.createElement('div') as HTMLDivElement;
@@ -42,6 +130,9 @@ export class Redditor extends Accordion {
         content.classList.add("redditor")
         this.onOpen=()=>{if(!this.loaded) this.loadFullData();}
         content.innerHTML="Loading user data"
+
+        this.deletedDisplay=new DeletedDisplay(this);
+        this.modTools=new ModTools(this);
     }
 
     private loadFullData():void{
@@ -64,40 +155,9 @@ export class Redditor extends Accordion {
         uNameDisp.innerHTML=this.uName;
         this.content.appendChild(uNameDisp);
         this.content.innerHTML+=" is at tier "+this.tier.toString()+" of the ban system.<br>";
-        this.content.appendChild(this.deletedDisplay);
+        this.content.appendChild(this.deletedDisplay.element);
 
-        let modSection:HTMLElement=document.createElement('div');
-        modSection.innerHTML="Mod stuff goes here!";
-        modSection.classList.add("needLoggedOn","needMod","userModActions")
-        this.content.appendChild(modSection);
-    }
-
-    private get deletedDisplay() : HTMLElement {
-        let res : HTMLElement = document.createElement('div')
-        
-        if(this.deletedThings.length>0){
-            let caption : HTMLSpanElement = document.createElement('span') as HTMLSpanElement;
-            res.appendChild(caption);
-            caption.innerHTML="Users was modded at the following times:"
-
-            let deletedList:HTMLUListElement =document.createElement('ul') as HTMLUListElement;
-            res.appendChild(deletedList)
-            for(var i in this.deletedThings){
-                let item:HTMLLIElement = document.createElement('li') as HTMLLIElement;
-                let link:HTMLAnchorElement = document.createElement('a') as HTMLAnchorElement;
-                link.href=this.deletedThings[i]
-                link.target='_blank'
-                link.innerHTML=(+i+1).toString()
-                item.appendChild(link);
-                deletedList.appendChild(item);
-            }
-        } else {
-            let placeHolder: HTMLParagraphElement = document.createElement('p') as HTMLParagraphElement;
-            res.appendChild(placeHolder)
-            placeHolder.innerHTML="This user has never been modded"
-        }
-
-        return res;
+        this.content.appendChild(this.modTools.element);
     }
 
     public get uName() :string {return this.data.uName}
@@ -109,4 +169,14 @@ export class Redditor extends Accordion {
     public get flairText() : string {return this.data.flairText}
     public get deletedThings() : string[] {return this.data.deletedThings}
     public get tier() : number {return this.data.tier}
+    
+    public punish():void{
+        this.data.tier++;
+        this.updateContent();
+    }
+    public forgive():void{
+        if (this.tier==0) return;
+        this.data.tier--;
+        this.updateContent();
+    }
 }
