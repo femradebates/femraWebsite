@@ -152,7 +152,7 @@ body{
   font-family: sans-serif;
   margin: 2px;
   border-radius: 10px 0px 0px 10px;
-  width: 100%;
+  width: calc(100% - 20px);
 }
 
 .accordian-wrapper:hover{
@@ -264,14 +264,16 @@ body{
 }
 
 .userModActions{
-  width: 100%;
-  height: fit-content;
-  margin:20px;
+  width: calc(100% - 40px);
+  min-height: 45px;
+  margin: 10px;
+  position: relative;
 }
 
 .userModActions div{
   display: inline-block;
   padding:4px;
+  position: relative;
 }
 
 .userModActions button{
@@ -280,6 +282,7 @@ body{
   border-radius: 4px;
   padding:6px;
   margin:4px;
+  position: relative;
 }
 
 .userModActions button:hover{
@@ -290,6 +293,13 @@ body{
 .userModActions button:hover{
   background-color: $primary-dark;
   color:$primary-darkText;
+}
+
+.userModActions input[type="text"]{
+  background-color: $primary;
+  border:none;
+  padding:2px;
+  border-bottom: solid 2px $primaryText;
 }
 
 .needLoggedOn{

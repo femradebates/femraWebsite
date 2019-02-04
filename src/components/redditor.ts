@@ -118,7 +118,6 @@ class ModTools{
         this.tierToggle=document.createElement('input') as HTMLInputElement;
         this.tierToggle.type="checkbox"
         this.tierToggle.checked=false
-
         this.tierBt.onclick=(ev:MouseEvent)=>{this.redditor.punish()};
         this.forgiveBt.onclick=(ev:MouseEvent)=>{this.redditor.forgive()}
         this.subButton.onclick=(ev:MouseEvent)=>{
@@ -135,7 +134,7 @@ class ModTools{
         this.container.appendChild(this.modButtons);
 
         this.tierToggle.title="Tier user for this act?"
-        this.newLink.placeholder="enter comment url here";
+        this.newLink.placeholder="enter reddit url here";
 
         this.modButtons.style.cssFloat="right"
         this.tierButtons.style.cssFloat="left"
