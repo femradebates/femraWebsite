@@ -3,6 +3,7 @@ import 'firebase/firestore'
 
 import { Accordion } from "./accordion";
 import {clearHTMLElement} from ".././utility/clearHTMLElement"
+import {Toggle} from './toggle'
 
 export enum FlairType{
     none,
@@ -42,7 +43,8 @@ class ModAct{
         this.delButton.classList.add("needLoggedOn","needMod");
         this.delButton.innerHTML='&times;'
         this.delButton.onclick=(ev:MouseEvent)=>{
-            this.redditor.removeDeletedThing(this.n,confirm("Forgive user?"))
+            if(!confirm("This cannot be undone.  Are you sure?")) return;
+            this.redditor.removeDeletedThing(this.n,false)
         }
     }
 
@@ -94,7 +96,7 @@ class ModTools{
     private tierBt:HTMLButtonElement;
     private forgiveBt:HTMLButtonElement;
     private newLink:HTMLInputElement;
-    private tierToggle:HTMLInputElement;
+    private tierToggle:Toggle;
     private subButton:HTMLButtonElement;
     constructor(redditor:Redditor){
         this.redditor=redditor;
@@ -115,27 +117,25 @@ class ModTools{
 
         this.newLink=document.createElement('input') as HTMLInputElement;
         this.newLink.type="text";
-        this.tierToggle=document.createElement('input') as HTMLInputElement;
-        this.tierToggle.type="checkbox"
+        this.tierToggle=new Toggle;
         this.tierToggle.checked=false
-
         this.tierBt.onclick=(ev:MouseEvent)=>{this.redditor.punish()};
         this.forgiveBt.onclick=(ev:MouseEvent)=>{this.redditor.forgive()}
         this.subButton.onclick=(ev:MouseEvent)=>{
-            this.redditor.addDeletedThing(this.newLink.value)
             if(this.tierToggle.checked) this.redditor.punish()
+            this.redditor.addDeletedThing(this.newLink.value)
         }
 
         this.tierButtons.appendChild(this.tierBt);
         this.tierButtons.appendChild(this.forgiveBt);
         this.modButtons.appendChild(this.newLink);
-        this.modButtons.appendChild(this.tierToggle);
+        this.modButtons.appendChild(this.tierToggle.element)
         this.modButtons.appendChild(this.subButton);
         this.container.appendChild(this.tierButtons);
         this.container.appendChild(this.modButtons);
 
         this.tierToggle.title="Tier user for this act?"
-        this.newLink.placeholder="enter comment url here";
+        this.newLink.placeholder="enter reddit url here";
 
         //this.modButtons.style.cssFloat="right"
         //this.tierButtons.style.cssFloat="left"
@@ -203,8 +203,13 @@ export class Redditor extends Accordion {
         uNameDisp.innerHTML=this.uName;
         this.content.appendChild(uNameDisp);
         this.content.innerHTML+=" is at tier "+this.tier.toString()+" of the ban system.<br>";
-
         this.content.appendChild(this.modTools.element);
+        for(var url of this.deletedThings){
+            if(this.modActs==null){
+                this.modActs=new ModAct(url,this);
+                this.content.insertBefore(this.modActs.element,this.modTools.element);
+            } else this.modActs=this.modActs.push(url);
+        }
     }
 
     public get uName() :string {return this.data.uName}
@@ -233,10 +238,20 @@ export class Redditor extends Accordion {
             this.content.insertBefore(this.modActs.element,this.modTools.element);
         } else this.modActs=this.modActs.push(url);
         this.deletedThings.push(url);
+        this.db.collection('redditors').doc(this.ID).update(
+            {deletedThings:this.deletedThings}
+        ).then(console.log("Added deleted thing")).catch(function(error:any) {
+            console.error("Error updating: ", error);
+        });
     }
 
     public removeDeletedThing(index:number,forgive:boolean){
         this.deletedThings.splice(index,1);
         this.modActs=this.modActs.remove(index);
+        this.db.collection('redditors').doc(this.ID).update(
+            {deletedThings:this.deletedThings}
+        ).then(console.log("Remove deleted thing")).catch(function(error:any) {
+            console.error("Error updating: ", error);
+        });
     }
 }
