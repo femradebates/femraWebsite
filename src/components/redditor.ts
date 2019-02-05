@@ -167,6 +167,10 @@ export class AddRedditor extends Accordion{
         
         this.addBt=document.createElement("button");
         this.addBt.innerHTML="Add the selected user";
+        this.uName=document.createElement('input');
+        this.uName.type="text";
+        this.content.appendChild(this.uName);
+        this.content.appendChild(this.addBt);
     }
 }
 
