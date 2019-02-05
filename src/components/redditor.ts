@@ -137,8 +137,8 @@ class ModTools{
         this.tierToggle.title="Tier user for this act?"
         this.newLink.placeholder="enter reddit url here";
 
-        //this.modButtons.style.cssFloat="right"
-        //this.tierButtons.style.cssFloat="left"
+        this.modButtons.style.cssFloat="right"
+        this.tierButtons.style.cssFloat="left"
     }
 
     public get element():HTMLElement{
@@ -221,14 +221,24 @@ export class Redditor extends Accordion {
     public get flairText() : string {return this.data.flairText}
     public get deletedThings() : string[] {return this.data.deletedThings}
     public get tier() : number {return this.data.tier}
+    public set tier(val:number){
+        if (val<0 || val!=Math.floor(val)) return;
+        this.data.tier=val;
+        this.db.collection('redditors').doc(this.ID).update(
+            {tier:this.tier}
+        ).then(console.log("Updated tier")).catch(function(error:any) {
+            alert("There was an error adding the mod action to the database.")
+            console.error("Error updating: ", error);
+        });
+    }
     
     public punish():void{
-        this.data.tier++;
+        this.tier++;
         this.updateContent();
     }
     public forgive():void{
         if (this.tier==0) return;
-        this.data.tier--;
+        this.tier--;
         this.updateContent();
     }
 
@@ -241,6 +251,7 @@ export class Redditor extends Accordion {
         this.db.collection('redditors').doc(this.ID).update(
             {deletedThings:this.deletedThings}
         ).then(console.log("Added deleted thing")).catch(function(error:any) {
+            alert("There was an error adding the mod action to the database.")
             console.error("Error updating: ", error);
         });
     }
