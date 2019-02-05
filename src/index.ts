@@ -3,10 +3,12 @@ import 'firebase/firestore'
 
 import './style.scss';
 import {TabSystem} from './components/tabBar'
-//import {Accordion} from './components/accordion'
+
 import {DefinitionData,Definition} from './components/definition'
-import {RedditorData,FlairType,Redditor} from './components/redditor'
+import {AddRedditor,Redditor} from './components/redditor'
 import {UserDisplay} from './components/userDisplay'
+
+import {clearHTMLElement} from './utility/clearHTMLElement'
 
 
 //import * as defs from './data/definitions.json'
@@ -55,14 +57,18 @@ let definitions: Definition[] = []
 let redditors: Redditor[] = [];
 
 db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
-    while(defView.firstChild) defView.removeChild(defView.firstChild)
+    clearHTMLElement(defView)
     snapshot.docs.forEach((doc :any) => {
         definitions.push(new Definition(defView,doc.data()))
     });
 })
 
+let addRedditor:AddRedditor=null;
+
+
 db.collection('redditors').doc('allUsers').get().then((doc:any)=>{
-    while(userView.firstChild) userView.removeChild(userView.firstChild)
+    clearHTMLElement(userView);
+    addRedditor=new AddRedditor(userView,db);
     for(var name of doc.data().list){
         redditors.push(new Redditor(userView,name,db))
     }

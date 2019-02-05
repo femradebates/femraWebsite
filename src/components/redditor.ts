@@ -122,8 +122,8 @@ class ModTools{
         this.tierBt.onclick=(ev:MouseEvent)=>{this.redditor.punish()};
         this.forgiveBt.onclick=(ev:MouseEvent)=>{this.redditor.forgive()}
         this.subButton.onclick=(ev:MouseEvent)=>{
-            if(this.tierToggle.checked) this.redditor.punish()
             this.redditor.addDeletedThing(this.newLink.value)
+            if(this.tierToggle.checked) this.redditor.punish()
         }
 
         this.tierButtons.appendChild(this.tierBt);
@@ -154,9 +154,25 @@ export interface RedditorData{
     tier: number;
 }
 
+export class AddRedditor extends Accordion{
+    private db:any;
+
+    private addBt:HTMLButtonElement;
+    private uName:HTMLInputElement;
+
+    constructor(parent:HTMLElement,db:any){
+        super(parent,document.createElement('div'),document.createElement('div'));
+        this.wrap.classList.add("needLoggedOn","needMod","addRedditor")
+        this.button.innerHTML="Add Redditor"
+        
+        this.addBt=document.createElement("button");
+        this.addBt.innerHTML="Add the selected user";
+    }
+}
+
 export class Redditor extends Accordion {
     private data: RedditorData;
-    private loaded: false;
+    private loaded: boolean;
     private db:any;
 
     private modActs: ModAct;

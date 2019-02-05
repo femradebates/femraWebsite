@@ -1,7 +1,7 @@
 export class Accordion{
     private head:HTMLDivElement
     private cont:HTMLElement
-    private wrap:HTMLDivElement
+    protected wrap:HTMLDivElement
 
     public onOpen: ()=>void;
 
@@ -25,9 +25,12 @@ export class Accordion{
         this.onOpen=()=>{};
     }
 
+    public get button() : HTMLDivElement{return this.head}
+
     public get content(): HTMLElement{return this.cont}
     public set content(val:HTMLElement){
         this.wrap.removeChild(this.cont)
+        val.classList.add("accordian-content");
         this.cont=val
         this.wrap.appendChild(this.cont)
     }
