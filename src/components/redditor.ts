@@ -154,7 +154,6 @@ export interface RedditorData{
     tier: number;
 }
 
-
 export class AddRedditor extends Accordion{
     private db:any;
 
@@ -182,7 +181,11 @@ export class AddRedditor extends Accordion{
         this.addBt.onclick=(ev:MouseEvent)=>{this.addRedditor(this.uName.value)}
     }
     private addRedditor(uName:string){
+        if(this.uName.value.length<=0) return;
+        if(!confirm("This is rather difficult to undo.  Are you sure you want to add " + uName + "to the list of users?")) return;
         let index: number = this.redditors.indexOf(this.redditors.find((element:Redditor)=>{return element.uName>uName}));
+        if (index<0) index=0;
+
         let newRedditor=new Redditor(this.parent,uName,this.db,this.redditors[index].wrap)
         this.redditors.splice(index,0,newRedditor)
 
