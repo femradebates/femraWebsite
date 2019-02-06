@@ -169,10 +169,8 @@
         "term": "Egalitarian"
     },
     {
-        "altTerms": [
-            "ex. working out"
-        ],
-        "def": "mental (ex. passing an exam), economic (ex. getting a raise), or social (ex. being elected to office)",
+        "altTerms": [],
+        "def": "is when a person feels more powerful, due to an action that they performed. This action is Empowering. Empowerment can be physical (ex. working out), mental (ex. passing an exam), economic (ex. getting a raise), or social (ex. being elected to office).",
         "notes":[],
         "prefix": "",
         "term": "Empowerment"
@@ -203,10 +201,8 @@
         "term": "Equality of Outcome"
     },
     {
-        "altTerms": [
-            "or other entities"
-        ],
-        "def": "are defined by fixed, innate attributes. This includes behavior (ie. Feminists are all women) and physical characteristics (ie. Men are all stronger than Women). Most commonly refers to to Gender Essentialism (where people are defined by their Gender). Sexual Dimorphism is a related concept, which is similar, but takes into account variance between individuals. Gender Essentialism is widely discredited by the scientific community",
+        "altTerms": [],
+        "def": "The belief that characteristics of groups of people (or other entities) are defined by fixed, innate attributes. This includes behavior (ie. Feminists are all women) and physical characteristics (ie. Men are all stronger than Women). Most commonly refers to to Gender Essentialism (where people are defined by their Gender). Sexual Dimorphism is a related concept, which is similar, but takes into account variance between individuals. Gender Essentialism is widely discredited by the scientific community.",
         "notes":[],
         "prefix": "",
         "term": "Essentialism"
@@ -408,7 +404,7 @@
     },
     {
         "altTerms": [],
-        "def": "to refer to MRM, MGTOW, and PUA blogs, message boards, and other online spaces",
+        "def": "is a feminist word used to refer to MRM, MGTOW, and PUA blogs, message boards, and other online spaces.",
         "notes":["usually pejorative"],
         "prefix": "The",
         "term": "Manosphere"
@@ -434,7 +430,7 @@
             "Men's Human Rights Movement",
             "MHRM"
         ],
-        "def": "or Men's Human Rights Movement (MHRM) is a collection of movements and ideologies aimed at defining, establishing, and defending political, economic, and social rights for Men",
+        "def": "is a collection of movements and ideologies aimed at defining, establishing, and defending political, economic, and social rights for Men",
         "notes":[],
         "prefix": "The",
         "term": "Men's Rights Movement"
