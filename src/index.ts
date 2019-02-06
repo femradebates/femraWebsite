@@ -11,7 +11,7 @@ import {UserDisplay} from './components/userDisplay'
 import {clearHTMLElement} from './utility/clearHTMLElement'
 
 
-//import * as defs from './data/definitions.json'
+import * as defs from './data/definitions.json'
 
 document.title="FeMRADebates: Discuss Gender Equality"
 
@@ -31,7 +31,6 @@ let mainContent: HTMLDivElement = document.getElementById("main-content") as HTM
 let tabs : TabSystem = new TabSystem(["Definitions","Users and tiers"],tabBar,mainContent)
 
 let defView : HTMLElement=document.createElement('div');
-defView.innerHTML="Loading definitions"
 let userView : HTMLElement=document.createElement('div');
 userView.innerHTML="Loading users"
 
@@ -56,12 +55,11 @@ db.settings({timestampsInSnapshots:true})
 let definitions: Definition[] = []
 let redditors: Redditor[] = [];
 
-db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
-    clearHTMLElement(defView)
-    snapshot.docs.forEach((doc :any) => {
-        definitions.push(new Definition(defView,doc.data()))
-    });
-})
+for(var i in (<any>defs)){
+    if (i=="default") continue;
+    let def: DefinitionData = (<any>defs)[i]
+    definitions.push(new Definition(defView,def))
+}
 
 let addRedditor:AddRedditor=null;
 
