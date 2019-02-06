@@ -68,7 +68,7 @@ let addRedditor:AddRedditor=null;
 
 db.collection('redditors').doc('allUsers').get().then((doc:any)=>{
     clearHTMLElement(userView);
-    addRedditor=new AddRedditor(userView,db);
+    addRedditor=new AddRedditor(userView,db,redditors);
     for(var name of doc.data().list){
         redditors.push(new Redditor(userView,name,db))
     }

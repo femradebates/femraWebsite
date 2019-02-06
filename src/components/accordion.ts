@@ -1,11 +1,11 @@
 export class Accordion{
     private head:HTMLDivElement
     private cont:HTMLElement
-    protected wrap:HTMLDivElement
+    public wrap:HTMLDivElement
 
     public onOpen: ()=>void;
 
-    constructor(parent:HTMLElement,button:HTMLDivElement,content:HTMLDivElement){
+    constructor(parent:HTMLElement,button:HTMLDivElement,content:HTMLDivElement,before:HTMLElement=null){
 
         this.head=button;
         this.head.classList.add("accordian-head")
@@ -20,7 +20,10 @@ export class Accordion{
         this.wrap.appendChild(this.head)
         this.wrap.appendChild(this.cont)
         this.open=false
-        parent.appendChild(this.wrap)
+        if(before==null)
+            parent.appendChild(this.wrap);
+        else
+            parent.insertBefore(this.wrap,before);
 
         this.onOpen=()=>{};
     }

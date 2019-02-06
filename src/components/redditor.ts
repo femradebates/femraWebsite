@@ -154,14 +154,21 @@ export interface RedditorData{
     tier: number;
 }
 
+
 export class AddRedditor extends Accordion{
     private db:any;
 
     private addBt:HTMLButtonElement;
     private uName:HTMLInputElement;
+    private redditors:Redditor[]
+    private parent:HTMLElement;
 
-    constructor(parent:HTMLElement,db:any){
+    constructor(parent:HTMLElement,db:any,redditors:Redditor[]){
         super(parent,document.createElement('div'),document.createElement('div'));
+        this.redditors=redditors;
+        this.parent=parent;
+        this.db=db;
+
         this.wrap.classList.add("needLoggedOn","needMod","addRedditor")
         this.button.innerHTML="Add Redditor"
         
@@ -171,6 +178,35 @@ export class AddRedditor extends Accordion{
         this.uName.type="text";
         this.content.appendChild(this.uName);
         this.content.appendChild(this.addBt);
+
+        this.addBt.onclick=(ev:MouseEvent)=>{this.addRedditor(this.uName.value)}
+    }
+    private addRedditor(uName:string){
+        let index: number = this.redditors.indexOf(this.redditors.find((element:Redditor)=>{return element.uName>uName}));
+        let newRedditor=new Redditor(this.parent,uName,this.db,this.redditors[index].wrap)
+        this.redditors.splice(index,0,newRedditor)
+
+        this.db.collection('redditors').doc(newRedditor.ID).set({
+            uName:newRedditor.uName,
+            flairType:FlairType.none,
+            flairText:"",
+            deletedThings:[],
+            tier:0
+        }).then(()=>{
+            console.log("Sucessfully added redditor data for "+uName)
+        }).catch((error:any)=>{
+            console.log("Error writing redditor collection")
+            console.log(error)
+            alert("There was a problem adding redditor.  Please check the console for details")
+        })
+
+        this.db.collection('redditors').doc('allUsers').update({list:this.redditors.map((r:Redditor)=>{return r.ID})}).then(()=>{
+            console.log("Sucessfully added "+uName+" to the list of all users")
+        }).catch((error:any)=>{
+            console.log("Error writing redditor to list")
+            console.log(error)
+            alert("There was a problem adding redditor.  Please check the console for details")
+        })
     }
 }
 
@@ -181,10 +217,10 @@ export class Redditor extends Accordion {
 
     private modActs: ModAct;
     private modTools:ModTools;
-    constructor(parent:HTMLElement,uName:string,db:any){
+    constructor(parent:HTMLElement,uName:string,db:any,before:HTMLElement=null){
         let head:HTMLDivElement=document.createElement('div') as HTMLDivElement;
         let content:HTMLDivElement = document.createElement('div') as HTMLDivElement;
-        super(parent,head,content)
+        super(parent,head,content,before)
         this.db=db;
         this.data={
             uName:uName,
@@ -233,7 +269,7 @@ export class Redditor extends Accordion {
     }
 
     public get uName() :string {return this.data.uName}
-    private get ID():string{
+    public get ID():string{
         if (this.uName.substr(0,2)=='__') return '\\'+this.uName;
         return this.uName;
     }
