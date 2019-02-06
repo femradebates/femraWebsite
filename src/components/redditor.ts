@@ -34,7 +34,8 @@ class ModAct{
         }
         this.num=document.createElement('a');
         this.container.appendChild(this.num);
-        this.num.href=url;
+        this.num.href="https://reddit.com/r/FeMRADebates/comments/"+url;
+        this.num.target="_blank";
         this.n=0;
         this.prev=null;
         this.next=null;
@@ -122,7 +123,12 @@ class ModTools{
         this.tierBt.onclick=(ev:MouseEvent)=>{this.redditor.punish()};
         this.forgiveBt.onclick=(ev:MouseEvent)=>{this.redditor.forgive()}
         this.subButton.onclick=(ev:MouseEvent)=>{
-            this.redditor.addDeletedThing(this.newLink.value)
+            if(this.deletedURL.length<=0){
+                alert(this.deletedURL+" is not a valid url")    
+                return;
+            }
+            this.redditor.addDeletedThing(this.deletedURL)
+            this.newLink.value="";
             if(this.tierToggle.checked) this.redditor.punish()
         }
 
@@ -143,6 +149,13 @@ class ModTools{
 
     public get element():HTMLElement{
         return this.container
+    }
+
+    private get deletedURL():string{
+        if (this.newLink.value.length<=0) return "";
+        let index:number=this.newLink.value.toLowerCase().indexOf("/r/femradebates/comments");
+        if (index<0) return "";
+        return this.newLink.value.substr(index+25)
     }
 }
 
