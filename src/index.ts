@@ -15,6 +15,8 @@ import * as defs from './data/definitions.json'
 
 document.title="FeMRADebates: Discuss Gender Equality"
 
+clearHTMLElement(document.body)
+
 document.body.innerHTML+=`
     <div id="tab-bar">
     </div>
