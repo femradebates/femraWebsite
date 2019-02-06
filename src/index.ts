@@ -1,14 +1,15 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore'
 
-
-
 import './style.scss';
 import {TabSystem} from './components/tabBar'
-//import {Accordion} from './components/accordion'
+
 import {DefinitionData,Definition} from './components/definition'
-import {RedditorData,FlairType,Redditor} from './components/redditor'
+import {AddRedditor,Redditor} from './components/redditor'
 import {UserDisplay} from './components/userDisplay'
+
+import {clearHTMLElement} from './utility/clearHTMLElement'
+
 
 //import * as defs from './data/definitions.json'
 
@@ -53,24 +54,24 @@ let db=firebase.firestore();
 db.settings({timestampsInSnapshots:true})
 
 let definitions: Definition[] = []
+let redditors: Redditor[] = [];
 
 db.collection('definitions').orderBy('term').get().then((snapshot:any)=>{
-    while(defView.firstChild) defView.removeChild(defView.firstChild)
+    clearHTMLElement(defView)
     snapshot.docs.forEach((doc :any) => {
         definitions.push(new Definition(defView,doc.data()))
     });
 })
 
-let userData:RedditorData={
-    uName: "lunar_mycroft",
-    flairType: FlairType.none,
-    flairText: "",
-    deletedThings: ["http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/cxmeoq9","http://www.reddit.com/r/FeMRADebates/comments/3mm22x/utbris_deleted_comments_thread/czgoarb"],
-    tier: 0
-}
+let addRedditor:AddRedditor=null;
 
-while(userView.firstChild) userView.removeChild(userView.firstChild)
 
-let exampleUser=new Redditor(userView,userData)
+db.collection('redditors').doc('allUsers').get().then((doc:any)=>{
+    clearHTMLElement(userView);
+    addRedditor=new AddRedditor(userView,db,redditors);
+    for(var name of doc.data().list){
+        redditors.push(new Redditor(userView,name,db))
+    }
+})
 
-let loginWidget=new UserDisplay(document.getElementsByClassName("overlay")[0] as HTMLElement,document.getElementById('login'))
+let loginWidget=new UserDisplay(document.getElementsByClassName("overlay")[0] as HTMLElement,document.getElementById('login'),db)
