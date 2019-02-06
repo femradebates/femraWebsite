@@ -51,5 +51,8 @@ export class TabSystem{
             this.lookup[n].active=(n==name)
     }
     public getContent(name:string):HTMLElement {return this.lookup[name].content}
-    public setContent(name:string,cont:HTMLElement){this.lookup[name].content=cont}
+    public setContent(name:string,cont:HTMLElement){
+        cont.classList.add("tabContent")
+        this.lookup[name].content=cont
+    }
 }
