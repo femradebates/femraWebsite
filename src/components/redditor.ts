@@ -243,6 +243,7 @@ export class Redditor extends Accordion {
     }
 
     private loadFullData():void{
+        if (this.loaded) return;
         this.db.collection('redditors').doc(this.ID).get().then((doc:any)=>{
             if(!doc.exists){
                 console.log("Attempted to read user "+this.ID+" but they don't exist")
@@ -253,6 +254,7 @@ export class Redditor extends Accordion {
             this.data.deletedThings = doc.data().deletedThings;
             this.data.tier = doc.data().tier;
             this.updateContent()
+            this.loaded=true;
         })
     }
 
