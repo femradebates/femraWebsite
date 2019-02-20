@@ -183,10 +183,10 @@ export class AddRedditor extends Accordion{
     private addRedditor(uName:string){
         if(this.uName.value.length<=0) return;
         if(!confirm("This is rather difficult to undo.  Are you sure you want to add " + uName + "to the list of users?")) return;
-        let index: number = this.redditors.indexOf(this.redditors.find((element:Redditor)=>{return element.uName>uName}));
+        let index: number = this.redditors.indexOf(this.redditors.find((element:Redditor)=>{return element.uName.toLowerCase()>uName.toLowerCase()}));
         if (index<0) index=0;
 
-        let newRedditor=new Redditor(this.parent,uName,this.db,this.redditors[index].wrap)
+        let newRedditor=new Redditor(this.parent,'u'+uName,this.db,this.redditors[index].wrap)
         this.redditors.splice(index,0,newRedditor)
 
         this.db.collection('redditors').doc(newRedditor.ID).set({
@@ -226,14 +226,14 @@ export class Redditor extends Accordion {
         super(parent,head,content,before)
         this.db=db;
         this.data={
-            uName:uName,
+            uName:uName.substr(1),
             flairType:FlairType.none,
             flairText:"",
             deletedThings:[],
             tier:0
         };
         this.loaded=false;
-        head.innerHTML=this.uName
+        head.innerHTML=this.uName;
         content.classList.add("redditor")
         this.onOpen=()=>{if(!this.loaded) this.loadFullData();}
         content.innerHTML="Loading user data"
@@ -273,8 +273,7 @@ export class Redditor extends Accordion {
 
     public get uName() :string {return this.data.uName}
     public get ID():string{
-        if (this.uName.substr(0,2)=='__') return '\\'+this.uName;
-        return this.uName;
+        return 'u'+this.uName;
     }
     public get flairType() : FlairType {return this.data.flairType}
     public get flairText() : string {return this.data.flairText}
